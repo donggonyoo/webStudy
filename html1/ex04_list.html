@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>목록관련태그</title>
+        <!--
+            ul , ol  의 하위태그 : li
+            ul ,ol , li ,hn 태그들은 블록레벨태그
+            블록레벨태그 : 라인전체에 적용되는 태그
+            b , strong , mark : 인라인 레벨태그
+            (인라인레벨태그 : 라인의일부만 범위적용)
+        -->
+    </head>
+    <body>
+        <!-- 
+        순서가없는목록 : ul (un_ordered list)
+        글머리의 종류 : 
+            -disk : 기본속성(생략)
+            -square : ■
+            -circle : ○
+        -->
+        <h1>순서가없는 태그 : u1</h1>
+        <h3>점심 메뉴</h3>
+        <ul type="square">
+            <li> 칼국수</li><li> 짬뽕</li>
+            <li> 라면</li><li> 국밥</li>
+        </u1><hr>
+
+        <h1> 순서가 있는 태그 : ul</h1>
+        <!-- 
+        순서가 있는 목록 : ol(ordered list)
+          - 글머리의 종류
+          1)  1,2,3 (기본값)
+          2) a : a,b,c ..
+          3) A : A , B ,C ...
+          4) I : I, II ,III ,IV
+          5) i : i.ii,iii, iv ....
+         -->
+        <h3> 다음중 select 구문이 속한 부분을 선택하세요</h3>
+        <ol type = "I">
+            <li>DDL</li><li>DML</li><li>DCL</li><li>TCL</li>
+        </ol>
+        <hr>
+        <h1>개요목록: dl</h1>
+        <!-- 
+            블록레벨
+            하나의 개요는 항목과 설명으로구성
+            dl(description list) : 모든개요의목록
+            dt(description term) : 하나의개요를 구성하는 항목
+            dd(description description) : 하나의 개요를 구성하는 설명
+        -->
+        <h3>일타스캔들</h3>
+        <dl>
+            <dt>편성</dt>
+            <dd>tvN 2023.01.14 ~ </dd>
+            <dt>시청률</dt>
+            <dd>13.0% 닐슨코리아</dd>
+            <dt>소개</dt>
+            <dd>사교육 전쟁터에서 펼처지는 국가대표 ....</dd>
+        </dl>
+    </body>
+</html>

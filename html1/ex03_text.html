@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>문자관련태그 hn</title> 
+    </head>
+    <body>
+        <h1> 제목관련태그</h1> <!-- 가장 큰 글씨순서임-->
+        <h1>제목1</h1>
+        <h2>제목2</h2>
+        <h3>제목3</h3>
+        <h4>제목4</h4>
+        <h5>제목5</h5>
+        <h6>제목6</h6>
+
+        <h1> 문단관련태그 : p태그</h1>
+        <!-- Lipsum 첫번째 문장 가져오기 -->
+        <p>배고파</p><p></p><p></p> <!--한번이후에는 의미X-->
+        <p>배고프면 밥 먹어</p>
+
+            <h1>줄바꿈 태그 : br태그</h1>
+            안녕하세요 <br><br><br> <!--br태그가없다면 줄이 띄어지지않음-->
+            홍길동입니다
+            <h1>구분선 : hr태그</h1>
+            <hr> <!-- 이 부분에 구분선이 그려짐짐-->
+            안녕
+            <h1>오늘의날짜는 <br> 3월</h1>
+            <br>
+            <h2>13일 </h2>
+
+            <!-- 가로로 긴 밑줄  -->
+            <hr>
+            <h3>11 <hr> 22</h3>
+            <h4>33</h4>
+            <h5>44</h5>
+            <h6>55</h6>
+            <hr>
+
+            <h1> 강조표현 </h1>
+            <!-- 
+                텍스트의 효과설정
+                - 태그 내의 텍스트만 적용
+                - 종류
+                (1) 굵게 
+                    -<b> , <string>
+                (2) 형광펜 : <mark>
+                (3) 밑줄 : <u> : underLine
+                (4) 취소선 : <s> : strikeLine
+                (5) 작은 글씨 : <small>
+                (6) 위첨자 : sup
+                (7) 아래첨자 : sub
+            -->
+            <p>
+                <strong>글씨크게</strong> <b>크게</b>
+                <mark>형관펜</mark> <u>밑줄</u> <s>취소선</s>,
+                <em>글씨기울이기</em>
+                <i>adipiscing</i>
+                <small>작게,</small>
+                <sup>위첨자,</sup>
+                <sub>아래첨자,</sub>
+            </p>
+            
+            <h1>인용태그</h1>
+            <blockquote>
+                Lorem ipsum dolor sit amet
+            </blockquote>
+            <q> <!-- "" 표시-->
+                sed do eiusmod tempor incididunt 
+            ut labore et dolore magna aliqua.
+            </q>
+
+            <hr>
+
+            <h1>기타태그</h1>
+            <abbr title="Lorem ipsum dolor sit amet">Lipsum</abbr>
+            <pre> <!-- 일반텍스트문서와같이 출력-->
+                pre 태그는 메모장에 작성하는 대로 출력됩니다
+                아래라인에 출력됩니다
+                <code>
+                    public void test(){ <!-- 코드는 pre블럭내에서만사용-->
+                        System.out.println("Hello Java");
+                    }
+                </code>
+            </pre>
+            
+
+
+    </body>
+</html>
