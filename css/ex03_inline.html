@@ -1,12 +1,26 @@
 <!DOCTYPE html>
+<!--
+    inline 방식
+        태그 내부에 스타일 지정
+        우선순위가 가장높음
+        !important : 우선순위조정가능 (사용자제권장)
 
+        우선순위
+         inline방식
+         internal방식
+         external방식
+-->
 <html>
     <head>
         <title>inline css</title>
-        <style> 
+        <link rel="stylesheet" href="ex02_external.css"><!--blue-->
+        <style>
+            h1{color: green;}
         </style>
     </head>
     <body>
-        <h1 style="color: blue;">반갑습니다 유동곤입니다</h1>
+        <h1>!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+        <h1 style="color: gray;">반갑습니다 유동곤입니다</h1>
+        <!-- 우선순위가 가장높은 inline(gray)색깔로 될것임-->
     </body>
 </html>

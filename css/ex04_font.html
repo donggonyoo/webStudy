@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>font 관련 css</title>
+        <style>
+            p{
+                font-family: '맑은 고딕',sans-serif; /*맑은고딕이 없으면 고딕계열을 사용*/
+                font-family: '궁서',serif;     /* '궁서'가 없다면 명조계열을 사용하시오*/
+                font-size: 32px;        /* default : 16px */
+                font-weight: 900;           /* default : 400,100~900 */
+                font-style: italic;             /* italic : 기울임, none : 기울임X */
+
+                /*블록요소는 정렬이 됨*/
+                text-align: center;       /*텍스트 정렬 : left , right , center , justify */
+                text-decoration: underline; /* underLine : 밑줄 , line-thorough : 취소선 , none :선 없애기*/
+                text-shadow: 5px 5px 1px red; /* shadow : x y blur(모자이크느낌) 색상 */
+            }
+            pre {
+            font-size: 40px;
+            line-height: 32px;           /* 행 높이 : 세로 가운데 정렬에서 주로 활용 */
+            letter-spacing: -1px;        /* 글자 간격 */
+            color: rgb(0, 0, 0);  /*검정색*/
+            color: rgb(255, 255, 255);/*흰색*/
+            /* RGB : #RRGGBB 16진수표현 */
+            color: #000000;
+            color: #FFFFFF;
+            color: rgba(0, 0, 0, 0.5);      /* alpha(투명도) : 0(투명) ~ 1(불투명) */
+         }
+         h1{
+            /*
+                브라우저 별로 글자의 외곽선 효과 처리 (표준화 추진중)
+                벤더 프리픽스 ( vender Prefix) : 속성 앞에 브라우저표현
+                1) -webkit... - : chrome , safari
+                2)-moz-... : 파이어폭스
+                3) -o-.... : 오페라
+            */
+            -webkit-text-stroke-color: rgb(210, 70, 55);
+            -webkit-text-stroke-width: 1px;
+         }
+         a{
+            text-align: center; 
+            color: green;
+            /*inline태그는 정렬이 되지않음*/
+         }
+        </style>
+    </head>
+    <body>
+        <p> Hello world</p>
+        <pre>Nice to meet you</pre>
+        <pre>Yoo good?</pre>
+        <h1>I'm fine</h1>
+        <a href="http://www.naver.com" target="_blank">네이버</a>
+    </body>
+</html>

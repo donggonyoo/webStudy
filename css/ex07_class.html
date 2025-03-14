@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-text{
+            color: #FF0000;
+        }
+        .big_text{
+      
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- class 속성의 값은 하나 이상의 값이 가능
+        class = "red_text big_text" 태그는
+        "red-tex 값과 big text 값을 2개 가진다.
+        
+        class = "red_text" 태그는 red_text 값을 1개가짐
+
+        id 속성은 1개의값만 가질 수 있음 
+
+        HTML의 태그의 속성의 이름은 유일해야함
+        <T a="1" b="2" a="3"> 오류
+
+            class 속성
+            1. 전역 속성임 (모든태그에 설정가능)
+            2. 같은 스타일을 가진 경우 같은 class속성 설정가능
+            3. 하나의 태그는 여러 class 속성을 가질 수 있다. 
+                공백으로 구분
+            4. style 에서 class 속성의 선택자는 . 이다.
+            .클래스속성의 값{}
+    -->
+    <p class="red-text big_text">hello world</p>
+    <p class="red-text ">Nice to meet you</p>
+    <p>일반적인 P태그그</p>
+</body>
+</html>
