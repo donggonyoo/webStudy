@@ -29,24 +29,116 @@
              <p>
                  <!-- input 태그의 type 종류-->
               <!--type="password" 비밀번호입력용-->
+              <caption>password</caption>
               <input type="password" placeholder="비밀번호 입력">  <br>
               <!-- type="number" : 숫자입력용-->
+              <caption>number</caption>
               <input type="number" min="1" max="12"><br>
-              <!-- type="number" : 숫자입력용-->
+              <!-- type="email" : 이메일입력용-->
+              <caption>email</caption>
               <input type="email" placeholder="이메일">  <br>
                <!-- type="date" : 날짜 입력용-->
+               <caption>date</caption>
               <input type="date"><br>
+              <caption>color</caption>
+              <input type="color" name="color" value="색상 값"><br>
               <!--type="hidden 화면에보이지않는 값 처리시-->
+              <caption>hidden</caption>
               <input type="hidden" value="절대화면에 보이지않음"><br>
               <!-- type="file" : 업로드파일 선택-->
+              <caption>file</caption>
               <input type="file"><br>
               <!-- type = "button" : 버튼입력-->
+              <caption>button</caption>
               <input type="button" value="버튼"><br>
                <!-- type = "submit"  : 폼 내부의 입력값 다른데이터로 전송 시 사용-->
-              <input type="submit" value="submit">
+               <caption>submit</caption>
+              <input type="submit" value="submit"><br>
               <!-- tpye = "reset" : 폼에 입력된 값을 초기화-->
+              <caption>reset</caption>
               <input type="reset" value="reset">
              </p>
-</form>
-    </body>
+
+             <p>
+                <!-- radio(단일선택) , checkbox(다중선택)-->
+                 <!-- radio : value 속성필요
+                   => 어떤 radio를 선택했는지 알기 위해 반드시추가
+                   같은name을 가진 radio이어야 단일 선택이 가능함
+                  -->
+                 <input type="radio" name="gender" value="male">남
+                 <input type="radio" name="gender" value="female">여
+                 <input type="radio" name="pass" value="1">합격
+                 <input type="radio" name="pass" value="2">불합격
+             </p>
+
+             
+              <p>
+                <!-- checkbox : 다중선택-->
+                 <input type="checkbox"> 모두 동의 <br>
+                 <input type="checkbox" name="hobbies" value="1">운동 
+                 <input type="checkbox" name="hobbies" value="2"> 여행 <br>
+              </p>
+              
+              <p>
+<!--------------------------------------------------------------------------------------------->
+              <!-- 폼태그의 하위 기타 태그-->
+               <!-- 1. select 태그 : 목록선택-->
+                <caption> 주소를 선택 -> </caption>
+                <select>
+                    <option value="naver">naver.com</option>
+                    <option value="kakao">kakao.com</option>
+                    <option value="gmail">gmail.com</option>
+                    <!--값 구분을 위해 value사용 권장-->
+                </select>
+                <!-- 여러개 option도 선택 가능-->
+                <caption> 지역을 선택 -> </caption>
+                <select multiple >
+                    <option value="seoul">서울</option>
+                    <option value="pusan">부산</option>
+                    <option value="incheon">인천</option>
+                </select>
+            </p>
+<!------------------------------------------------------------------------------------------------->
+                <!-- textarea : 여러 행 입력 태그-->
+                 <p>
+                    <caption>textarea</caption><br>
+                    <!-- 디폴트 : 2행20열-->
+                     <textarea></textarea><br>
+                     <!-- rows : 행 cols: 열-->
+                      <textarea rows=5 cols="5"></textarea><br>
+                      <!-- values 대신 태그 내부 텍스트가 입력된값 저장-->
+                       <textarea> hello </textarea>
+                 </p>
+
+<!------------------------------------------------------------------------->
+                 <p>
+                    <!-- label 태그 : 라벨붙이기-->
+                     <!--
+                     for 속성 : 입력요소의 id값을 의미
+                     id : 해당페이지의 유일성을 가짐
+                     -->
+                     <caption>label태그</caption><br>
+                     <label for="male">
+                        <input type="radio" name="gender" value="male" id="male">남
+                     </label>
+                     <label for="female">
+                        <input type="radio" name="gender" value="female" id="female">여
+                     </label>
+                 </p>
+<!------------------------------------------------------------------------------------------------->
+                 <!-- filedset :  입력요소들을 그룹화-->
+                  <p>
+                    <caption>filedset</caption><br>
+                    <fieldset>
+                        <legend>성별</legend> <!--성별이라는 이름으로 그룹화해줌-->
+                        <label for="male">
+                            <input type="radio" name="gender" value="male" id="male">남
+                        </label>
+                        <label for="female">
+                            <input type="radio" name="gender" value="female" id="female">여
+                        </label>
+                    </fieldset>
+                </p>
+            </form>
+        </body>
 </html>
