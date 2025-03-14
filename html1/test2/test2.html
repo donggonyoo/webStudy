@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2</title>
+</head>
+<body>
+    <form action="">
+        <p>
+       <fieldset>  <!--입력요소 그룹을 설정-->
+            <legend>납품자 정보</legend><!--나눈 항목의 제목-->
+            1.납품자명: <input type="text" name="name" placeholder="name"><br>
+            <!-- <caption>2.email : </caption> -->
+            2.email : <input type="email" name="email" placeholder="answs@naver.com"><br>
+            <!-- <caption>3.홈페이지 : </caption> -->
+            3.홈페이지: <input type="url" name="url" placeholder="http://">
+        </fieldset>
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul><!--순서가없는 리스트-->
+                <li>상품명 : <input type="text" name="product" ></li>
+                <li>납품수량 : <input type="text" name=count placeholder="최소100"></li>
+                <li>납품등급 : <input type="range" name="range"></li>
+                <li>기타 사항 : <textarea></textarea></li>
+                <!-- textarea 의 default는 2행20열임
+                 rows , cols 를 추가해 변경가능-->
+            </ul>
+        </fieldset><br>
+        <input type="submit" name="send" value="send Message">
+
+    </p>
+</form>
+</body>
+</html>
