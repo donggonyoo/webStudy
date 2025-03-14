@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>하이퍼링크 관련 태그</title>
+    </head>
+    <!-- 
+    1. 인라인레벨
+    2. 다른페이지나 다른사이트 다른위치로 링크를 연결하는 태그
+    3. 속성 
+        1) href : 이동할 페이지(경로)
+        2)title : 풍선도움말 
+        3) target : 새창 or 현재창 여부
+            _self : 현재창 (잘안씀 생략가능)
+            _blank : 새로운창
+    -->
+    <body>
+        <!-- 이동이없는 링크-->
+         <a href=""> 비어있는 링크</a> <!--href에 링크를 걸지않았다면 현재페이지로이동-->
+         <br>
+         <a href="#"> 비어있는 링크</a> <!--이동없음-->
+         <br>
+         <a href="javascript:void(0)"> 비어있는 링크</a> <!--이동없음-->
+         <!-- 웹 경로로 링크 -->
+          <p><!-- 문단을 나눈단 뜻 별의미없음-->
+            <a href="https://www.google.com">구글</a><!-- default(_self):  현재창에서 열기-->
+            <a href="https://www.naver.com" target="_blank">네이버</a> <!--_blank:  새창으로 열기-->
+          </p> 
+
+          <!-- 이미지 경로로 링크-->
+           <p>
+            <a href="./images/bgsample.jpg" target="_blank"> 이미지</a>
+            <!-- 이미지 링크 생성(이미지를 만들어줌)-->
+            <a href="https://www.naver.com" target="_blank"><img src="./images/icon.png"></a>
+             <!--해당이미지를 누르면 naver로 이동
+            -->
+           </p>
+
+           <!-- 다른파일 링크-->
+            <ul type="circle">
+                <li><a href="ex02_basic.html" target="_blank">기본</a></li>
+                <li><a href="ex03_text.html" target="_blank">텍스트</a></li>
+                <li><a href="ex04_list.html" target="_blank">목록</a></li>
+            </ul>
+            <!-- 문서내부 링크-->
+             <!-- id속성 : HTML 구성요소(태그) 식별하기위한 속성 , 유일성(아이디값중복X)-->
+             <ul>
+                <li><a href="#title">id="title"요소로 이동</a></li>
+                <li><a href="#images">id="images"요소로 이동</a></li>
+                <li><a href="#content">id="content"요소로 이동</a></li>
+             </ul>
+            <br>
+            <!-- id간의 간격을 일부러 심하게 두었음-->
+            <h1 id="title"> 겨울</h1>
+
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <p id="images"><img src="images/city1.jpg" width="500"></p>
+            <br><br><br><br><br><br><br><br><br><br><br><br>  <br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <p id="content">
+                12월부터 2월까지는 겨울<br>
+                12월부터 2월까지는 겨울<br>
+                12월부터 2월까지는 겨울<br>
+                12월부터 2월까지는 겨울<br>
+                12월부터 2월까지는 겨울<br>
+                12월부터 2월까지는 겨울<br>
+                12월부터 2월까지는 겨울<br>
+            </p>
+            <!-- ifram으로 다른페이지 가져오기-->
+            <iframe width="400px" height="400px" src="http://me.go.kr/home/web/main.do"></iframe>
+    </body>
+</html>

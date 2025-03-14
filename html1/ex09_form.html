@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form관련태그</title>
+    </head>
+    
+    <body>
+        <form>
+        <!-- 1.<input type ="text">태그-->
+         <p>
+            <!-- 디폴트:type ="text" 적용 -->
+
+             <input> <!-- 기본 입력상자-->
+             <br>
+             <input type="text" size="5"> <!--입력상자의 크기 5-->
+             <br>
+             <input type="text" maxlength="4"><!--입력값의 크기 4-->
+             <br>
+             <input type="text" placeholder="검색어를 입력"><!--입력메시지-->
+             <br>
+             <input type="text" required><!-- 필수 입력 사항-->
+             <br>
+             <input type="text" value="날씨"><!-- 입력값 미리 설정함-->
+             <br>
+             <input type="text" value="변경불가" readonly><!-- 읽기 전용(수정X)-->
+             <br>
+             <input type="text" value="변경불가" disabled><!-- 사용불가--><br>
+             </p>
+             <p>
+                 <!-- input 태그의 type 종류-->
+              <!--type="password" 비밀번호입력용-->
+              <input type="password" placeholder="비밀번호 입력">  <br>
+              <!-- type="number" : 숫자입력용-->
+              <input type="number" min="1" max="12"><br>
+              <!-- type="number" : 숫자입력용-->
+              <input type="email" placeholder="이메일">  <br>
+               <!-- type="date" : 날짜 입력용-->
+              <input type="date"><br>
+              <!--type="hidden 화면에보이지않는 값 처리시-->
+              <input type="hidden" value="절대화면에 보이지않음"><br>
+              <!-- type="file" : 업로드파일 선택-->
+              <input type="file"><br>
+              <!-- type = "button" : 버튼입력-->
+              <input type="button" value="버튼"><br>
+               <!-- type = "submit"  : 폼 내부의 입력값 다른데이터로 전송 시 사용-->
+              <input type="submit" value="submit">
+              <!-- tpye = "reset" : 폼에 입력된 값을 초기화-->
+              <input type="reset" value="reset">
+             </p>
+</form>
+    </body>
+</html>
