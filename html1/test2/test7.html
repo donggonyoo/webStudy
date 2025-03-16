@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login{
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+        .radi{
+            display: grid; /*grid는 줄바꿈이가능*/
+            width: 400px;
+            justify-content: center; /*(grid)내용을 정렬함*/
+        }
+
+        
+    </style>
+</head>
+<body>
+    <form action="">
+    <h1>백엔드 개발자 지원서</h1>
+   <caption>java , Spring , DataBase에 대한 기술적이해와 
+    경험이 있는 분을 찾습니다.</caption>
+    <br>
+    <hr>
+    <h3>개인정보</h3>
+        <div class="login">이름</div>  
+        <input type="text" placeholder="공백없이 입력" required>
+        <br>
+        <div class="login">연락처</div>
+        <input type="text">
+        <br>
+    <h3>지원 분야</h3>
+    <div class="radi">
+        <label for="back">
+            <input type="radio" name=submit id="back">백엔드 개발<br>
+        </label>
+        <label for="server">
+            <input type="radio" name=submit id="server">서버 개발<br>
+        </label>
+        <label for="evr" >
+            <input type="radio" name=submit id="evr">개발 환경 개선
+        </label>
+    </div>
+
+    <br>
+    <h3>지원동기</h3>
+    <textarea placeholder="지원동기를 간략히써주세요" rows="5" cols="30">
+    </textarea>
+    
+    <br>
+    <input type="submit" value="접수하기">
+    <input type="reset" value="다시 쓰기">
+</form>
+</body>
+</html>

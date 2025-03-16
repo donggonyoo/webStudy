@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <caption>테이블1</caption> <!--제목-->
+    <table border="3"> <!--테이블 선의 굵기-->
+        <tr>
+            <th>1열</th> <!-- 테이블의 기준-->
+            <th>2열</th>
+            <th>3열</th>
+            <th>4열</th>
+        </tr>
+        <tr><!--하나의 행-->
+            <td>1</td><!--하나의 열-->
+            <td>2</td>
+            <td>3</td>
+            <td rowspan="2">4</td> <!--2개의 행을 다 쓴다(세로)-->
+        </tr>
+        <tr>
+            <td colspan="2">5</td><!--2개의 열을 사용(가로)-->
+            <td>6</td>
+        </tr>
+    </table>
+    <hr><br>
+    <table border="1">
+        <caption>이미지</caption>
+        <tr>
+            <!--../ : 최상위계층 연결-->
+            <td><img src="../images/DB.png" alt="DB" width="100px"></td>
+            <!--img도 테이블에 넣을 수 있음 alt로오류가 발생시
+            어디서 발생했는지 알 수 있으며 , width로 크기 지정-->
+            <td>
+                <figure> <!--이미지의 설명을위해 존재하는태그-->
+                    <figcaption>html</figcaption>
+                    <!--하위태그인 figcaption에 설명을 달자자-->
+                    <img src="../images/html.png" alt="html" width="100px"></td>
+                </figure>
+                
+            <td>
+                <figure>
+                    <figcaption>자바바</figcaption>
+                    <img src="../images/ja.png" alt="java" width="100px"></td>
+                </figure>
+               
+        </tr>
+    </table>
+</body>
+</html>

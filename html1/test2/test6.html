@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+    .field{
+        display: inline-block;
+        width: 100px; /*모든 filed클래스를 100px크기 고정 */
+        text-align: center;
+    }
+    h1{
+        text-shadow: 5px 5px 1px purple;
+    }
+  </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="test6.html">
+    <p>
+        <fieldset>
+            <legend>필수입력사항</legend>
+            <b class="field">id</b>
+             <input type="text" placeholder="아이디10글자 이내" required>
+            <input type="button" value="중복확인" ><br>
+
+            
+            <b class="field">비밀번호</b>
+             <input type="password" placeholder="영문숫자포함8자리" required><br>
+          
+
+         
+            <b class="field">비밀번호확인</b> 
+            <input type="text" placeholder="아이디10글자 이내" required><br>
+           
+
+        
+            <b class="field">Email</b>
+             <input type="email" required>
+             <select >
+                <option value="basic" selected>직접입력</option>
+                <option value="naver">@naver.com</option>
+                <option value="gmail">@gmail.com</option>
+                <option value="daum">@daum.net</option>
+             </select>
+             <br>
+        </fieldset>
+    </p>
+    <p2>
+        <fieldset>
+            <legend>추가정보</legend>
+            프로필사진 : 
+            <input type="file"><br>
+            <caption>성별</caption>
+            <label for="male"> 
+                <input type="radio"  name="gender" id="male" >남자
+            </label>
+               <!--label을 사용함으로써 radio버튼이 아닌 
+               텍스트를 눌러도 체크됨됨-->
+           <label for="female">
+            <input type="radio" name="gender" id="female" >여자
+           </label>
+           
+            <br>
+            <caption>생년월일 : </caption><input type="date">
+            <br>
+            <caption>취미</caption><br>
+            <input type="checkbox" name="hobbit" value="base">야구
+            <input type="checkbox" name="hobbit" value="basket">농구
+            <input type="checkbox" name="hobbit" value="soc">축구<br>
+            <input type="checkbox" name="hobbit" value="else">기타:
+            <input type="text">
+            <br>
+
+            <caption>자기소개</caption><br>
+            <textarea rows="5" cols="30"></textarea>
+        </fieldset>
+    </p2>
+    <input type="submit" value="회원가입">
+    <input type="reset" value="다시입력">
+    <input type="button" value="이전으로">
+</form>
+</body>
+</html>

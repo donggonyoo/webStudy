@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        b{
+        /* b{
             display:inline-block;
             font-weight: 50;
             text-align: center;
-        }
+        } */
+         .content{
+            display: flex; /*가로로 배치*/
+            align-items: center;/*중앙정렬*/
+         }
     </style>
 </head>
 <body>
@@ -19,14 +23,53 @@
             <fieldset>
            
                 <legend>공지사항 작성하기</legend>
-                <b>제목</b>
-                <input type="text" placeholder="제목을 입력하시오"><br>
-                <b>내용</b>
-                <textarea rows="8" cols="10" > </textarea>
+                <strong>제목</strong>
+                <input type="text" placeholder="제목을 입력하시오" required><br>
                 
-
-           
+                <p class="content"> 
+                    <!--class를이용해 이 부분만 style적용-->
+                    <strong>내용</strong>
+                    <textarea rows="8" cols="20" placeholder="내용입력"></textarea>
+                <!-- textarea 태그 사이에공백이있으면 plcaeholder가 보이지않음-->
+                </p>
+                
+                
+                <br>
+                <b>첨부파일</b>
+                <input type="file" value="파일 선택" required>
+                <br>
+                &emsp;<input type="submit" value="작성하기" >
         </fieldset>
+        <br>
+        <table border="1" id="tb">
+            <colgroup>
+                <col width="5%">
+                <col width = "50%">
+                <col width = "8%">
+            </colgroup>
+            <tr>
+                <th>번호</th>
+                <th colspan="2">제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+            <tr>
+                 <td>9</td>
+                 <td>공지사항 제목 9</td>
+                 <td> 
+                        <input type="button" value="바로가기" id="baro">
+                    </td>
+                 <td>user01</td>
+                 <td>2021-03-29</td>
+                 <td>34</td>
+            </tr>
+            <tr>
+                <th colspan="4">전체공지사항 갯수</th>
+                <th colspan="2">1개</th>
+            </tr>
+            
+        </table>
     </p>
 </form>
     

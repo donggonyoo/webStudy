@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form ><!--사용자로부터 데이터입력받을수있는 창 구성-->
+        <fieldset><!--하나의 그룹이라고 생각하면 됨-->
+            <legend> input기능들</legend>
+            <p><!--아무의미X(문단나누기용)-->  
+                <caption>글자 입력</caption>
+                <input type="text" placeholder="글자입력하세요" required>
+                <!--placeholder : 입력이드-->
+                <!--required 필수입력-->
+                <br>
+                <caption>5~20자리 숫자</caption>
+                <input type="number"min=5 max="20">
+                <br>
+                <caption>날짜선택</caption>
+                <input type="date">
+                <br>
+                <caption>pw</caption>
+                <input type="password" placeholder="7자리이상">
+                <br>
+                <caption>파일선택(file)</caption>
+                <input type="file">
+                <br>
+                <caption>버튼</caption>
+                <input type="button" value="그냥 버튼">
+                <br>
+                <caption>reset</caption>
+                <input type="reset" value="리셋버튼">
+                <br>
+                <caption>제출(필수조건입력안할시경고)</caption>
+                <input type="submit" >
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>체크</legend>
+            <p>
+                <!--하나만 체크할수있음 (name이 같아야한다)-->
+                <label for="male">
+                    <input type="radio" name="gender" id="male" >남자
+                </label>
+                <br>
+                <!--label for=id   
+                id의 글씨부분을 눌러도 체크 됨 
+                , 찾기편해짐--> 
+                
+                <input type="radio" name="gender" id="female">여자
+                <br>
+
+                <caption>checkbox(다중선택가능)</caption>
+                <br>
+                <input type="checkbox" name="xx" value="java">자바
+                <input type="checkbox" name="xx" value="html" checked>html
+                <!--checked : 기본값 설정-->
+                <input type="checkbox" name="xx" value="DB">DB
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>기타기능</legend>
+            <p>
+                <caption>여러행 이용하기</caption>
+                <textarea rows="4" cols="30" placeholder="여러행"></textarea>
+                <!-- textarea태그 사이에 공백이있으면 기본값입력이안됨-->
+                <br>
+
+                <caption>지역선택</caption>
+                <select>
+                    <!--select : 여러개중 하나를 선택할수있는 창-->
+                    <!--option으로 선택 할 value들을 설정해줌-->
+                    <option value="basic" selected>지역을선택</option>
+                    <!--selected : 기본선택-->
+                    <option value="서울특별시">서울</option>
+                    <option value="인천광역시">인천</option>
+                    <option value="수원시">수원</option>
+                </select>
+
+            </p>
+            
+        </fieldset>
+    </form>
+    
+</body>
+</html>

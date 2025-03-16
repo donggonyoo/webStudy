@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{
+            text-align: center;
+            /*filedSet(그룹)의 legend(제목)부분의 class를 
+            이용해 가운데정렬*/
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="color: rebeccapurple;">납품 대장</h1>
+    <form>
+        <p1>
+            <fieldset>
+                <legend class="title">납품자 정보</legend>
+                <b>1.납품자명 : </b>
+                <input type="text" placeholder="name">
+                <br>
+                <b>2. email : </b>
+                <input type="email" placeholder="kd@naver.com">
+            </fieldset>
+        </p1>
+        <p2>
+            <fieldset>
+                <legend class="title">납품정보</legend>
+                <ul type="square">
+                    <li>상품명:<input type="text"></li>
+                    <li>납품수량 <input type="text" placeholder="최소100" required></li>
+                    <li>납품 등급 : <input type="range"></li>
+                    <li>기타사항 : <textarea rows="2"></textarea></li>
+                </ul>
+            </fieldset>
+        </p2>
+        <input type="submit" value="send message">
+        
+    </form>
+    
+</body>
+</html>
