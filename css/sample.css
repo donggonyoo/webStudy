@@ -21,7 +21,7 @@ div[class $= ss]{color: white;}
 
 /*div 태그 중 class속성값이 i를 포함하는 태그
 [속성명*= 속성값]인 태그 */
-div[class *= i]{background-color:turquoise}
+div[class *= i]{background-color:blue}
 
 /*2 . 자손(자식)선택자 , 후손선택자 */
 /* (id=test1)#test1 인 요소의 모든 자손요소들 */
@@ -29,7 +29,7 @@ div[class *= i]{background-color:turquoise}
 
 
 /* (id=test1)#test1 인 요소의 자손요소 중 h4 */
-#test1> h4 {background-color:pink;}
+#test1 > h4 {background-color:pink;}
 
 
 /* (id=test1)#test1 인 요소의 자손요소 중 u1요소의
@@ -43,8 +43,10 @@ div[class *= i]{background-color:turquoise}
     color: white;}
 
 /* 3. 동위선택자 */
-/*#test2 태그와 같은 위치 바로 이후(1개) div*/
-#test2+div{background-color: yellow;}
+/* #test2 태그와 같은 위치 바로 이후(1개) div */
+#test2+div {
+    background-color: yellow;
+}
 
 /*#test2 태그와 같은 위치  이후의 div*/
 /* #test2~div{background-color: red;} */
@@ -70,6 +72,14 @@ div[class *= i]{background-color:turquoise}
     background-color: aqua;
     color: white;
     font-size: 20px;
+    button{
+        padding: 20px;
+        border: none;
+        border-width: 30px;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: gray;
+    }
 }
 
 /*5 상태 선택자 */

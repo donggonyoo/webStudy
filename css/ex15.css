@@ -1,0 +1,75 @@
+      pre{
+        font-size: 20px;
+        font-weight: bold;
+        color: gray;
+        text-shadow: 5px 5px 1px red;
+      }
+      
+      div{
+            width: 100px;
+            height: 100px;
+            border-width: 3px;
+            margin: 15px;
+
+        }
+        #test1{
+            border-style: dotted; /*test1을 점선으로바꿔봐라 */
+            border-top-width: 10px; /*위의 점두께 */
+            border-top-color: rebeccapurple;
+        }
+        #test2{
+            /*x축(좌우) y축(상하) 번짐정도 그림자확산거리 색상상*/
+            box-shadow: 5px 5px 20px 3px rgb(223, 4, 4);
+        }
+        /* 테두리스타일 : dashed, 왼쪽테두리의 색 : red*/
+        #test3{
+            border-style: dashed;
+            border-left-color: red;
+        }
+        #test4{
+            border-style: dashed double solid dotted;/*시계방향*/
+            border-width: 7px;
+        }
+        #test5{
+            border-style: groove;/*테두리를 깎는것처럼*/
+            border-width: 10px;
+        }
+        #test6{
+            border-style: ridge;/*테두리가튀어 나온것처럼(groove의반대) */
+            border-width: 10px;
+        }
+        #test7{
+            border-style: inset;/*안쪽면이 들어간 것 처럼 */
+            border-width: 10px;
+        }
+        #test8{
+            border-style: outset;/*안쪽면이 튀어나온것처럼*/
+            border-width: 10px;
+        }
+        #test9{
+            border-style: solid;/*기본 선*/
+            border-top-left-radius: 60px;
+            /*둥글게 깎는다(px이 높아질수록 작아짐) */
+            border-bottom-right-radius: 60px;
+            background-color: red;
+            border-color:aqua;
+        }
+        #test10{
+            border: 10px double pink;
+            border-radius: 60px;
+        }
+        #btn{
+            padding: 20px;
+            border:none;
+            border-radius: 10px;
+            cursor: pointer; /*이 부분에오면 커서가 손가락으로바뀜*/
+            font-weight: bold;
+        }
+        /*마우스의 커서가 btn영역 안에 들어오면 배경색을 바꿔보자*/
+        #btn:hover{
+            background-color: blue;
+            color: white;
+            border-radius: 70px;
+            border-width: 400px;
+            font-size: 20px;
+        }
