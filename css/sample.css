@@ -1,0 +1,108 @@
+h2{color: red;}
+
+/*div 태그 중 name 속성값이 name1인 태그*/
+div[name=name1]{background-color: orangered;}
+
+/*div 태그 중 name 속성값이 name1이 포함되어 있는 태그
+[속성명~= 속성값]인 태그 */
+div[name ~= name1]{background-color: yellow;}
+
+/*div 태그 중 class 속성값이 class로 시작하는 태그
+[속성명|= 속성값]인 태그(-로 구분) */
+div[class |= class]{background-color:aqua;}
+
+/*div 태그 중 name 속성값이 na로 시작하는 태그
+[속성명^= 속성값]인 태그 */
+div[name ^= na]{background-color:coral;}
+
+/*div 태그 중 class속성값이 ss로 끝나는 태그
+[속성명$= 속성값]인 태그 */
+div[class $= ss]{color: white;}
+
+/*div 태그 중 class속성값이 i를 포함하는 태그
+[속성명*= 속성값]인 태그 */
+div[class *= i]{background-color:turquoise}
+
+/*2 . 자손(자식)선택자 , 후손선택자 */
+/* (id=test1)#test1 인 요소의 모든 자손요소들 */
+/* #test1> * {background-color:pink;} */
+
+
+/* (id=test1)#test1 인 요소의 자손요소 중 h4 */
+#test1> h4 {background-color:pink;}
+
+
+/* (id=test1)#test1 인 요소의 자손요소 중 u1요소의
+자손요소 li태그 */
+/* #test> li ( > : 바로밑에 자식만 가능) */
+/* #test1> ul>li {background-color:darkblue;
+                color: white;} */
+
+/* (id=test1)#test1 인 후손요소 중 li태그*/
+#test1 li {background-color:darkblue;
+    color: white;}
+
+/* 3. 동위선택자 */
+/*#test2 태그와 같은 위치 바로 이후(1개) div*/
+#test2+div{background-color: yellow;}
+
+/*#test2 태그와 같은 위치  이후의 div*/
+/* #test2~div{background-color: red;} */
+
+/*#test2 태그와 같은 위치  이후의 ul*/
+#test2~ul{background-color:greenyellow;}
+
+.area{
+    background:green;
+    width: 150px;
+    height: 150px;
+    cursor: pointer; 
+    /*마우스커서의 모양*/
+}
+
+/*#active-test인 태그가 클릭된 경우*/
+#active-test:active{
+    background: yellow; 
+    color: red;
+}
+/*#hover-test인 태그에 마우스를 갖다댄경우 */
+#hover-test:hover{
+    background-color: aqua;
+    color: white;
+    font-size: 20px;
+}
+
+/*5 상태 선택자 */
+
+/* checkbox가 선택된 태그 */
+input[type=checkbox]:checked{
+    width: 20px;
+    height: 20px;
+    /* font-size: 30px; 의미X*/
+}
+
+/* checkbox가 선택된 태그의 바로 이후의 label */
+input[type=checkbox]:checked+label{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*input태그 중 name 속성의값이 
+user를 포함하는 태그에 focus(초점)이 있는경우 */
+input[name*=user]:focus{
+    background-color: pink;
+}
+
+/*정상버튼*/
+button:enabled{
+    background-color: violet;
+}
+/*사용할 수 없는 버튼(disabled)*/
+button:disabled{
+    background-color: black;
+    color: white;
+}
+
+
+
+

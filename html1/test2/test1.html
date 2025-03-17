@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test1</title>
     <style>
+        .infor{
+            display: inline-block;
+            width:100px;
+            text-align: center;
+        }
         
     </style>
 </head>
 <body>
     <form>
-        <fieldset>
+        <fieldset class>
             <legend>고객정보</legend>
-            <caption>고객명 : </caption>
+            <p class="infor">고객명 : </p>
             <input type="text" name="customer" ><br>
-            <caption>전화번호 : </caption>
+            <p class="infor">전화번호 : </p>
             <input type="text" name="phone" placeholder="number(-제외)" ><br>
-            <caption>E-mail : </caption>
+            <p class="infor">E-mail : </p>
             <input type="email" name="email"  placeholder="E-mail"><br>
         </fieldset>
         <br>

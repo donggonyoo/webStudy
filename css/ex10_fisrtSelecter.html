@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        p{
+            font-size: 20px;
+        }
+        h1{
+            background-color: pink;
+            color: yellow;
+        }
+        div{
+            background-color:aqua !important;
+            /* !important 사용*/
+            color: red;
+            font-size: 30px;
+            width: 300px;
+            height: 200px;
+
+
+        }
+        #id1{
+            background-color: black;
+            color:white;
+        }
+        .class1{
+            background-color: chocolate;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>선택자 우선순위</h1>
+    <p>
+        다양한 선택자를 이용해서 동일한 요소를 선택했을 경우 작성순서에 상관없이
+        우선순위에 따라 적용됨 <br>
+        태그선택자 -> 클래스선택자 -> 아이디선택자 -> 인라인스타일방식 -> !important
+    </p>
+    <div id="id1" class="class1" style="background:purple; color:red">우선순위테스트</div>
+</body>
+</html>
