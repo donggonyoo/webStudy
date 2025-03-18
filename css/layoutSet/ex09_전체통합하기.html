@@ -4,6 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div , header,section,article,aside,footer,div{
+            display: block;
+            border: 1px solid gray;
+            box-sizing: border-box;
+        }
+        .wrap{
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .header{
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .header_top{
+            height: 80%;
+            display: flex;
+        }
+        .header_nav{
+            height: 20%;
+        }
+        .header_logo,.header_alarm{
+            width: 20%;
+        }
+        .header_logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;/*가운데배치를 위한*/
+        }
+        .header_logo img{
+            width: 100px;
+            height: 100px;
+        }
+        .header_search{
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;/*가운데배치를 위한*/
+        }
+        .search_form{
+            width: 80%;
+            height: 20%;
+            display: flex;
+        }
+        .search_form > input{ width: 80%;}
+        .search_form > button{width: 20%;}
+        /*----------------------------------메뉴바----------------------------*/
+
+        .header_nav{
+           height:20%;
+        }
+        .menu_wrap{
+            width: 100%;
+            height: 100%;
+            display: flex;    
+        }
+        .main_menu{
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;/*sub를 붙여야함*/
+        }
+        .main_menu>a{
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: orange;
+        }
+        .sub_wrap{
+            top: 40px;
+            width: 100%;
+            text-decoration: none;
+            position:absolute;
+            display: none;/*보이지않게가려놓음*/
+        }
+        .main_menu:hover > div{
+            display: block;
+            /*.main_menu에 마우스를 대면
+            숨겨진 div 가 보임*/
+        }
+        .sub_menu{
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sub_menu>a{
+            color: pink;
+        }
+
+/*-----------------------------------------------------*/
+        .content_wrap{
+            min-height: 500px;
+            display: flex;
+        }
+        .content_news{
+            width: 70%;
+        }
+        .content_side{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content_side_myinfo{/*로그인 부분들*/
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .login_form{
+            width: 90%;
+            display: flex;
+            height: 70%;
+        }
+        .login_input_wrap{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+        .login_input_wrap>input{
+            height: 100%;
+        }
+        .login_btn{
+            width: 30%;
+        }
+        .login_btn> button{
+            height: 100%;
+            width: 100%;
+        }
+        .login_etc{
+            display: flex;
+            width: 100%;
+            height: 30%;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .login_etc>a{
+            font-size: 12px;
+            text-decoration: none;
+            color:black
+        }
+
+        .content_side_ad{
+            height: 350px;
+
+        }
+    /*----------------------------------------------------=*/
+        .footer{
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .footer_link{
+            height:20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer_link > a{
+            text-decoration: none;
+            color : black;
+            font-weight: bold;
+            margin: 15px;
+        }
+        .footer_info{
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+        .footer_info_company{
+            height: 80%;
+            list-style-type: '-';
+            padding-left: 20px;
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .footer_info_company>li{
+            font-size: 12px;
+        }
+
+        .footer_info_copyright{
+            text-align: center;
+            height: 20%;
+        }
+
+
+
+        
+        
+    </style>
     
 </head>
 <body>
