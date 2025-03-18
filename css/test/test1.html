@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        ul{
-            list-style-type:none;
-            display: flex; /*ul(숫자없는리스트)를 가로로 정렬함 */
-        }
+      
         li{
             padding: 30px;
         }
@@ -17,10 +14,14 @@
             text-decoration: none;
             color : gray
         }
-        .wrap1{
+        .wrap1>ul{/*wap1 class의 하위인 ul*/
+            list-style-type:none;/*글머리기호없애기*/
+            display: flex; /*ul(숫자없는리스트)를 가로로 정렬함 */
             border-bottom: 1px solid gray;
         }
-        .wrap2{
+        .wrap2>ul{/*wrap2 class의 하위인 ul*/
+            list-style-type:none;
+            display: flex;
             padding-left: 500px; /*내용기준 왼쪽의 공백*/
             border-top: 1px solid gray;
             border-bottom: 1px solid gray;
