@@ -22,7 +22,8 @@
         document.write("document.write() 함수를 이용해 화면에 출력<br>")
         let test = document.getElementById('test');//아이디가test인 태그를 가져옴
          //id가 test인 태그에 출력시킴
-        test.innerHTML = "<table border='1'><tr><td>innerHTML테스트</td></tr></table>"; 
+        test.innerHTML = "<table border='1'><tr><td>innerHTML테스트</td></tr>"+
+                            "<tr><td>하하하</td></tr></table>"; 
     </script>
 <!--------------------데이터입력------------------------------------------------------------->
 
@@ -34,6 +35,8 @@
     </ul>
     <button onclick="testConfirm();">클릭</button>
     <div id="area"></div>
+
+
     <script>
         function testConfirm(){
             //메시지대화 창 : 
@@ -44,7 +47,7 @@
             let result = confirm("홍길동님이시면 확인 아니면 취소눌러주세요")
             console.log(result)
             const divEl = document.getElementById('area');
-            if(result){
+            if(result){//result가 참(확인)이면 출력
                 divEl.innerHTML="<h3>환영합니다</h3>"
             }
             else{
