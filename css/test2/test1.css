@@ -7,8 +7,11 @@
 .wrap{
     width: 80%;
     height: 100%;
+    margin:auto;
     min-height: 1000px;
     min-width: 1500px;
+    display: flex;
+    flex-direction: column;
 }
 
 header{
@@ -19,12 +22,12 @@ header{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    position: relative;
 }
 .nav{
     height: 10%;
     width: 100%;
     margin-bottom: 2px;
+    background-color: rgb(68, 100, 16);
 }
 .content_wrap{
     height: 60%;
@@ -62,14 +65,15 @@ footer{
 ul>li {
     width: 25%;
     display: flex;
-    background-color: rgb(68, 100, 16);
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    
 
 }
 li>a{
-    width: 100%;
-    font-size: 30px;
     text-decoration: none;
-    text-align: center;
     color: white;
 }
 /*----------------------------header , nav 태그 끝------*/
@@ -87,6 +91,7 @@ li>a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 3%;
 }
 
 .content_img{

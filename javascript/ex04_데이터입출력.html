@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>데이터를 출력하는 구문</h2>
+    <ul>
+        <li>[window.]alert("브라우저의 확인창에 출력시킬 메시지")</li>
+        <li>[window.]console.log("브라우저의 콘솔창에 출력시킬 메시지")</li>
+        <li>document.write("브라우저의 화면에 출력시킬 메시지")</li>
+        <li>태그.innerHTML("태그 내부에 출력시킬 메시지")</li>
+    </ul>
+    <div id="test"></div>
+
+    <script>
+        document.writeln("<h1 style=color:red>데이터입출력 예시</h1>")
+        alert("브라우저 확인창에 메시지를 띄웁니다")
+        document.write("<hr>")
+        document.write("document.write() 함수를 이용해 화면에 출력<br>")
+        let test = document.getElementById('test');//아이디가test인 태그를 가져옴
+         //id가 test인 태그에 출력시킴
+        test.innerHTML = "<table border='1'><tr><td>innerHTML테스트</td></tr></table>"; 
+    </script>
+<!--------------------데이터입력------------------------------------------------------------->
+
+    <h2> 데이터를 입력하는 구문</h2>
+    <ul>
+        <li>변수 : [window.]confirm("질문내용");</li> <!-- 확인 , 취소의 2개의선택지가 주어질것임-->
+        <li>변수 : [window.]prompt("질문내용");</li>
+        <li>변수 : 특정요소.속성(id,className,innerHTML,innerText,...);</li>
+    </ul>
+    <button onclick="testConfirm();">클릭</button>
+    <div id="area"></div>
+    <script>
+        function testConfirm(){
+            //메시지대화 창 : 
+            // 1.alert("확인창") ,
+            // 2.confirm("선택창"(확인or취소))  
+            //확인 : true , 취소 : false
+            //3.prompt()
+            let result = confirm("홍길동님이시면 확인 아니면 취소눌러주세요")
+            console.log(result)
+            const divEl = document.getElementById('area');
+            if(result){
+                divEl.innerHTML="<h3>환영합니다</h3>"
+            }
+            else{
+                divEl.innerHTML = '<h3>안녕히가세요</h3>'
+            }
+        }
+    </script>
+<!--------------------------------------------prompt-------------------------------->
+    <h3>
+        window.prompt("질문내용");
+    </h3>
+    <p>
+        prompt 호출 시 "질문내용"과 입력할 수 있는 "텍스트 상자"와
+        "확인/취소"버튼이 보여지는 브라우저의 알람창 발생<br>
+        확인 버튼 클릭 시 텍스트 상자에 입력된 value값을 "문자열"로 반환,
+        취소버튼 클릭시 null 반환 ==> 변수에 담아서 활용가능
+    </p>
+    <button onclick="testPrompt1()">클릭</button>
+    <div id="area2"></div>
+    
+    <script>
+        function testPrompt1(){
+            let name = prompt("당신의 이름은 무엇입니까?");
+            let age = prompt("당신의 나이는 몇살?");
+            const divEl = document.getElementById('area2');
+            divEl.innerHTML = "<b>"+age+"살 "+name+"님. 반가워요 </b>"
+            //innerHTML :해당 태그내부에 출력될 문장
+         //id가 area2인 div태그에 출력
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        합계  구하기버튼 클릭 시 prompt창이 나오고
+        숫자만 입력받아 1부터입력받은 수 까지 합계를 출력하기
+        계산된합계는 #total 에 출력(div태그의속성에는 value가없음)
+    </p>
+    <button onclick="totalSum();">합계 구하기</button>
+    <div id="total"></div>
+    <script>
+        function totalSum(){
+            let count = prompt("숫자를 입력하세요!",0);//기본값이 0이라는 뜻
+
+            let sum=0; //let(변수선언)을 붙이지않는다면 전역변수가 되어버림
+            for(i=1 ; i<=count ; i++){
+                sum+=i;
+            }
+            let total = document.getElementById('total');
+            //div태그 내에 출력
+            total.innerHTML = "<h4 style=color:red>1부터"+count+"까지의 합 : "+sum+"</h4>";
+            
+            // total.innerText = "<h4 style=color:red>1부터"+count+"까지의 합 : "+sum+"</h4>";
+            //오직 text값만을 태그 내에 넣을 수 있음 
+        }
+        // function test(){
+        //     console.log(sum);} sum에 아무함수선언도하지않는다면
+        //                  블럭밖에서도 사용이 돼 버림
+    </script>
+</body>
+</html>
