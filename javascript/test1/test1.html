@@ -27,6 +27,8 @@
 
 <script>
     function calc(){
+      //ID는 유일하다 , 변수도 동일하면 안됨
+      // a= cnt.value; 의 형태로도 작성가능
         let cnt = document.getElementById('cnt').value;
         let apple = document.getElementById('apple').value;
         document.getElementById('basketcnt').value=  Math.ceil(apple/cnt);//큰 근사정수

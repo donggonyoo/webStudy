@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            border: 1px solid black;
+            width: 300px;
+            height: 100px;
+            overflow: auto; 
+            /*
+            영역의 범위이상이 되면 
+            내부에서 태그를 만듬(벗어나지않음)
+            */
+        }
+    </style>
+</head>
+<body>
+<!--
+    Dom(Document Object Model ): 문서객체모델
+    - HTML 문서의 태그들을 객체로 처리하는 방식
+    - 객체조회방식
+        1)document.getElementById("id속성값") : 요소리턴       
+        2)document.getElementByName("name속성값") : 배열리턴
+        3)document.getElementByTagName("Tag명") : 배열리턴
+        4)document.getElementByClassName("class속성값") : 배열리턴
+        5)document.querySelector("선택자") : 요소리턴
+        6)document.querySelectorAll("선택자") : 배열리턴      
+    -조회 할 태그가 반드시 스크립트 실행 전에 먼저인식되어야함
+    (함수내에서의 DOM처리는 가능)
+-->
+<!-----------------------------------id이용---------------------------->
+    <h1>HTML 요소에 접근하기(태그객체 조회)</h1>
+    <h3>아이디 속성을 이용해 조회하기</h3>
+    <!--
+        id속성은 유일함을 의미(한개의객체만 찾아서 조회)    
+    -->
+    <div class="area" id="area1" style="background-color:red;"></div>
+ 
+    <button onclick="accessId()">아이디로 접근</button>
+ 
+<hr>
+<!-------------------------------------------태그 이름 이용-------------------->
+    <h3>태그 이름을 이용해 조회하기 : document.getElementsByTagName</h3>
+    <ul>
+        <li>목록1</li><li>목록2</li><li>목록3</li><li>목록4</li>
+        <li>목록5</li>
+    </ul>
+    <button onclick="accessTagName();">태그로 접근</button>
+<!------------------------------------------name속성값----------------------> 
+    <h3>name속성값 이용해 조회하기 : document.getElementsByName</h3>
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+            <input type="checkbox" id="game" name="hobby" value="game">
+            <label for="game">게임</label>
+            <input type="checkbox" id="movie" name="hobby" value="movie">
+            <label for="movie">영화</label>
+            <input type="checkbox" id="reading" name="hobby" value="reading">
+            <label for="reading">독서</label>
+            <input type="checkbox" id="sports" name="hobby" value="sports">
+            <label for="sports">운동</label>
+            <!--
+            label은 for 과 id가 일치할 시
+            태그내에 문장을 누르면 check해줌
+            -->
+        </fieldset>
+    </form>
+    <br>
+    <button onclick="accessName();">name으로 접근</button>
+    <div class="area" id="area3"></div>
+    <br>
+    <hr>
+<!-------------------------class속성값 이용---------------------->
+<h3>class속성값 이용해 조회하기 : document.getElementsByClassName</h3>
+<div class="test"></div>
+    <p class="test"></p>
+    <ul class="test">
+        <!--조회 시 ul태그 전체의 객체를 보내게 됨-->
+        <li></li>
+    </ul>
+    <pre class="test test1"></pre>
+    <!--class속성은 " "로 구분하기때문에 
+     class명에 test가 포함되면 조회가능-->
+    <button onclick="accessClass();">Class로 접근</button>
+<br><hr>
+<!----------------------------선택자활용 --------------------->
+<h3>선택자를 이용해 요소 조회해보기 : document.querySelector</h3>
+<div id="test1">테스트입니다</div>
+<div class="test">
+    <h2>안녕</h2>
+    <h2>잘가렴</h2>
+    <span>lfjsofjwofwf</span>
+</div>
+<span> zzzzzz</span>
+<h2>BYE</h2>
+<button onclick="accessSelector();">클릭</button>
+
+
+<script src="ex05_요소.js"></script>
+</body>
+
+</html>

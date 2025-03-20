@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgb(85, 49, 49);
+        }
+        .size{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red
+        }
+    </style>
+</head>
+<body>
+    <h1>문제1 색상 선택 후  변경버튼 클릭하면 색상이변경되도록</h1>
+    <div class="area" id="di"></div>
+    <input type="color" id="color">
+    <button onclick="colorChange();">변경</button>
+
+    <br><hr><br>
+
+    <h1>버튼에따른 크기조절이 가능하게 해보세요</h1>
+    <div class="size" id="si"></div>
+    <button onclick="small();">50x50</button>
+    <button onclick="original();">100(원본)</button>
+    <button onclick="big();">200x200</button>
+    <script src="test3.js"></script>
+    
+</body>
+</html>

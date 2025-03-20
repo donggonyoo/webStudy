@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="money"></div>
+    
+    <script>
+        let total = 0 ;
+        let a  = ''; //저축문장을 넣어둘 변수
+
+        while(total < 100){ //저축금액이 100보다 적을동안만 반복
+        let money = parseInt(Math.random()*10)+1;
+        total += money;
+       if(money>5){
+        a += `저축을 많이하셨습니다 ${money}원 /잔액${total}<br>`;
+       }   
+        else{
+            a += `저축을 적게하셨습니다 ${money}원 /잔액${total}<br>`;
+        }
+    }
+    document.querySelector("#money").innerHTML += a;
+    document.querySelector("#money").innerHTML += total+"저축 만료"
+    
+    
+    </script>
+</body>
+</html>
