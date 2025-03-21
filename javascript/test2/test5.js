@@ -15,4 +15,17 @@ function stringSplit(){
     }
 }
 
+function list(){
+    let la2 = document.querySelector("#la2").textContent;
+    //text로 읽어와야 split으로 나눌 수 있음
+    let arr= la2.split(",");
+    let query = '<ul type="square">';
+    console.log(arr , typeof(arr));
+    for(i=0 ; i<arr.length ; i++){
+        query += `<li>${arr[i]}</li>`;
+    }
+    query+=`</ul>`;
+    document.querySelector("#result3").innerHTML +=query;
+}
+
 

@@ -6,7 +6,8 @@
 <style>
 	div {
 		border: 1px solid red;
-		height: 150px;
+		height: 250px;
+		overflow: auto;
 	}
 </style>
 </head>
@@ -36,7 +37,16 @@
 
 	<div id="result2"> </div>
 	<button onclick="stringSplit();"> 확인하기</button>
-	
+
+	<br><hr>
+	<h2> 문제 3 다음보기에있는 문자열을보기좋게 리스트로 정렬해보자</h2>
+	<fieldset>
+    	<legend>보기</legend>
+      	<label id="la2">콜라,사이다,햄버거,피자,한약,삼겹살,목살</label>
+	</fieldset>
+	<button onclick="list();">리스트로만들기</button>
+	<div id="result3"></div>
+
     <script src="test5.js"></script>
 
 </body>
