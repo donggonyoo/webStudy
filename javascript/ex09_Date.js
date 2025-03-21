@@ -50,4 +50,45 @@ weekName = arr[date.getDay()];
 box1.innerHTML += `2025-03-30 ${weekName}요일<br>`
 //오늘의 요일 출력하기
 
+//--------------------------------------------------------------------------\
+
+function fnFillZero(n){
+    return n <10 ? '0'+n : n;
+    //10보다 작을 떄 앞에 0 문자열을 덧붙여줌(자릿수보정)
+}
+
+//우리가만든 함수가 아닌 자바스크립트의함수
+//setInterval(함수,밀리초) : 밀리초마다 함수를 실행
+setInterval(function(){
+let now = new Date();
+document.querySelector("#year").textContent = now.getFullYear();//2025
+document.querySelector("#month").textContent = fnFillZero(now.getMonth()+1);//03
+document.querySelector("#date").textContent = fnFillZero(now.getDate());//21
+document.querySelector("#hour").textContent = fnFillZero(now.getHours());
+document.querySelector("#minute").textContent = fnFillZero(now.getMinutes());
+document.querySelector("#second").textContent = fnFillZero(now.getSeconds());
+document.querySelector("#mil").textContent = fnFillZero(now.getMilliseconds());
+if(now.getSeconds() >=50){
+    //className : class속성의 이름 
+    // <hi id = "counter" class="over50second"> </hi>로 설정한단 뜻
+    document.querySelector("#counter").className = 'over50second';
+    
+    //setAttribute : 속성 등록 함수
+    //setAttribute(속성명,속성값):  <h1 id="counter" class = "over50second"></h1>
+    // document.querySelector("#counter").setAttribute("class",'over50second');
+   
+}else{
+    //className='' :등록된 class속성의값을 제거
+    document.querySelector("#counter").className = '';
+
+    // document.querySelector("#counter").removeAttribute("class");
+    //removeAttribute(속성명) : 속성명 제거
+}
+},100);//1초마다 함수를 실행하는것임 
+
+
+
+
+
+
 
