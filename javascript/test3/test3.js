@@ -12,7 +12,7 @@ function show_cal(){
     console.log(date2)
     let lastDay = date2.getDate();
     
-    let a = "<table><tr>"
+    let a = `<table><tr> <caption>${y}년${m}월</caption>`
     a+=`<th class='text-red'>일</th><th>월</th><th>화</th><th>수</th>
     <th>목</th><th>금</th><th class='text-blue'>토</th></tr> <tr>`;
     let week = date.getDay();
