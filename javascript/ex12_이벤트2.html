@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>key이벤트</h2>
+    <p>
+        - keydown | keypress  => 키가 눌려질 떄 발생되는 이벤트<br>
+        > keydown : 키보드에서 키가 눌려질 떄 발생<br>
+        > keypress : 키보드에서 키가 눌려져있는 상태 . 
+                F키(F1~F12),기능키 등에서는 발생X <br> 
+        - keyup => 키가 올라올떄(키에서 손을 뗄 때)
+    </p>
+    <input type="text" id="userName">
+<!-------------------태그별로 기본적으로 가지고 있는 이벤트제거--------------------------------------------------->
+    <br><hr>
+    <h2>태그별로 기본적으로 가지고 있는 이벤트제거</h2>
+    <p>
+        -a태그 :클릭시 href속성에쓰여져있는 url을 요청하는 기본이벤트
+        -form 태그의 submit버튼 : submit버튼 클릭시 form태그의action속성에
+                쓰여져있는 url로 입력값들과 함꼐 요청하는 기본이벤트존재
+        -태그 내에 기본설정된 이벤트의 실행을 막을때는 return false로설정<br>
+    </p>
+    <!--연결못하게하는 방법중에 주소앞에 # 을 붙이는 방법도있음-->
+    <!-- onclick에 return false를 넣어주면 아무일도 일어나지않음-->
+    <a href="http://www.naver.com" onclick="alert('네이버연결 못함');return false">네이버 이동</a><br>
+    <a href="http://www.google.com" onclick="return test4();">구글로 이동</a><br>
+    <br><hr>
+<!------------------------------form>submit----------------------------------------------->
+    <form action="ex11_exam(event).html" method="get">
+        <!--submit 시 action의 링크로 이동하게됨
+        name의 정보가 같이넘어가게됨(정보유출위험) name을 넣지않으면 
+        넘어가지않을것임-->
+        아이디: <input type="text" id="userId" name="userId" required><br>
+        비밀번호 : <input type="password" id="userpw" name="userpw" required><br>
+        <input type="submit"value="전송" onclick="return validate();">
+        
+    </form>
+
+    <script src="ex12_이벤트2.js"></script>
+</body>
+</html>

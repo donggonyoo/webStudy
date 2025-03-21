@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            border: 1px solid black;
+            width: 500px;
+            height: 200px;
+        }
+        button{
+            font-size: 20px;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+    <h1>배열</h1>
+    <p>자바스크립트에서는 변수선언시 별도의 자료형 지정x 어떤자료형이든
+        하나의 배열에 저장 <br>
+        크기에 제한X , 자바의 ArrayList와 비슷함<br>
+        [] 표기법 사용 <br>
+    </p>
+    <button onclick="arrayTest1();">확인</button>
+    <br><br>
+
+<!----------배열에 값 저장하기------------------------->
+
+<button onclick="arrayTest2()">확인2</button>
+<br><br>
+
+<!----------------배열관련 메서드 ------------------------->
+<h3>배열관련 메서드</h3>
+<h4>배열.indexOf(요소) : 배열에서 요소의 위치값 리턴</h4>
+
+<button onclick="indexofTest();">확인3</button>
+<div class="area" id="area1"> </div>
+
+
+    <script src="ex13_배열.js"></script>
+    
+</body>
+</html>
