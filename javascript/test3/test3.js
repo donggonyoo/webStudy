@@ -7,9 +7,10 @@ function show_cal(){
 
     let day=1;
     let date = new Date(y,m-1,day);
+    //Date방식의 month : 0~11
     let date2 = new Date(y,m,0);
-    console.log(date)
-    console.log(date2)
+    //해당 달+1 세팅 후 date를 0 으로설정 시
+    //해당달의 마지막날짜가 세팅 됨
     let lastDay = date2.getDate();
     
     let a = `<table><tr> <caption>${y}년${m}월</caption>`
@@ -34,6 +35,9 @@ function show_cal(){
             }
             day++; //날짜++
         }
+        //여기까지는 해당 월의 1일만 해당하는 문장들임
+        //⬇⬇⬇  날짜가 1일이 아닌 경우 
+
         else{
             if(i%7==0){  //일요일 : 0 7 14 21 28 -> 7로나눈 나머지는 0 
                 a+=`</tr><tr><td class='text-red'>${day}</td>`
