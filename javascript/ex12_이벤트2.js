@@ -39,11 +39,11 @@ function validate(){
     // }
 
     //정규식을 이용해 아이디 유효성 검사하기
-    const regExp = /^[a-z0-9]{5,12}$/i;
+    const regExp = /^[a-zA-Z0-9]{5,12}$/i;
     //소문자의 아스키코드 > 대문자아스키코드
     if(!regExp.test(userId)){//정규표현식과 일치하지않는다면
         alert("유효한 아이디의형식X 다시입력")
-        document.getElementById("userId").select();
+        document.getElementById("userId").select();//텍스트전체를 선택해줌
         return false;
     }
 }

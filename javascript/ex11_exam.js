@@ -8,6 +8,6 @@ function drawimg(){
     // img2.src ="img/"+document.getElementsByName("s")[0].value;
 
     let img2 = document.img2; //BOM : Browser Object Model
-    img2.src = "img/"+document.f.s.value;
+    img2.src = "img/"+document.querySelector("#s").value;
     //form.select.value 의 표준말
 }
