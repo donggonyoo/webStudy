@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 자기호출함수
+     1. 함수의정의와 호출을 합침
+     2 함수를 정의 , 바로 호출될수있도록 구성
+     3 일반 익명함수와 정의와호출-->
+    <script>
+        //일반 익명함수를 정의하고 호출
+    (function(){
+    console.log("hello world");
+    })();
+
+//화살표함수
+(()=>{
+    console.log("hello world2")
+})();
+
+//자기호출이 필요한경우
+let arr = [function() {console.log("안녕")},
+            function() {console.log("홍길동")} ];
+(arr[0])();
+(arr[1])();
+    </script>
+
+<!---------------------------------------------------------------------------->
+
+    <script>
+/*
+    2.콜백함수(callback function)
+    1)함수를 다른함수의 인수로전달!
+    2)인수로전달된 함수를 콜백함수라 부름
+    3) 함수에서 호출되는 함수
+*/
+function info(d1,d2){
+    console.log(d1,d2);
+}
+function func1(d1,d2,func){
+    func(d1,d2);
+}
+func1("안녕","하세요",info); //info함수 호출
+//익명함수를 이용해 콜백함수 정의(주료사용하는방식)
+func1("TO","BAD",function(data1,data2){ 
+console.log("1:",data1),
+console.log("2:",data2)});
+
+func1("TO","BAD",(data1,data2)=>{
+console.log("1:",data1);
+console.log("2:",data2);
+});
+   
+    </script>
+</body>
+</html>

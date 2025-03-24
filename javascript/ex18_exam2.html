@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="area1"></div>
+    <script>
+        //배열안에 객체넣기
+        let contacts = [   
+             {name : '길동',phone:'010-1233-4242',email:"kildong@saf.com"},
+             {name : '삿갓',phone:'010-1523-6652',email:"sk@saf.com"},
+             {name : '재석',phone:'010-4523-8421',email:"JS@saf.com"}
+            ];
+        /*
+        contacts배열 이용해서 #area1영역에 테이블로출력하기
+        */
+        let a = `<table border=1><tr><th>성명</th>
+            <th>번호</th><th>이메일</th></tr><tr>`;
+        for(let i=0 ; i<contacts.length ; i++){
+            for(j in contacts[i]){ // i번인덱스의 객체를 루프돌림
+                a+= `<td>${contacts[i][j]}</td>`;
+            }a+=`</tr><tr>` //루프가끝날때마다 행바꿈실행
+        }
+// for(j=0;contacts[i].length ; j++)와 같은 방식은 불가능(2차원배열이아님)
+        a+= `</tr><table>`;
+        document.querySelector("#area1").innerHTML = a;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea rows="10" cols="50" id="intext">ㅎㅎㅎㅎ</textarea>
+    <button onclick="setlang('kor_KR');ttsTest()">읽기</button>
+    <script>
+        let msg = new SpeechSynthesisUtterance();
+        function setlang(t){
+            msg.lang = t;
+        }
+        function ttsTest(){
+        msg.text = document.querySelector("#intext").value;
+        speechSynthesis.speak(msg); //내용을 읽어 소리로표현
+        }
+    </script>
+    
+</body>
+</html>

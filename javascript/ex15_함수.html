@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            border: 1px solid black;
+            width: 500px;
+            color: white;
+            font-weight: bold;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수(function)</h1>
+    <h3 onclick="test1()">*선언적함수</h3>
+    <pre>
+        function 함수명([매개변수,매개변수,..]){
+            해당함수 호출시 실행시킬 소스코드;
+            [return 결과값;]
+        }
+    </pre>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+
+    <h3>익명함수 : 이름이 없는 함수</h3>
+    <pre>
+        변수|속성 : function([매개변수,매개변수,..]){
+            해당함수호출시 실행할 소스코드;
+        }
+        특정 변수나 속성에 대입되는 함수 제시시 주로사용
+        (주로이벤트핸들러 작성시 사용)
+    </pre>
+    <!--익명함수 설명내용 
+        1.익명함수
+        1) 이름X 함수
+        2) 이벤트처리용 
+        3) 호이스팅대상이 아님(코드중 항상 먼저 처리X)
+        4) 함수정의
+          (1) 일반익명함수
+          let val1 = function([매개변수..]){...};
+          (2) 화살표(=>)함수 (람다)
+          let val1 = ([매개변수..]) => {...}
+        5)함수호출
+          (1) val1(). 변수에익명함수를 저장 후 변수를 함수처럼 사용
+          (2) 이벤트에 등록된 익명함수는 이벤트발생시 호출
+    -->
+    <button id="btn">실행확인</button>
+    <div id="area2" class="area"></div>
+    <hr><br>
+
+    <div class="함수의 매개변수">
+    <h2>함수의 매개변수</h2>
+    <div id="area3" class="area"></div>
+    <button onclick="test2('안녕하세요')">실행확인1</button>
+    <button onclick="test2(10)">실행확인2</button>
+    <button onclick="test2([10,20,30])">실행확인3</button>
+    <button onclick="test2(true)">실행확인4</button>
+    <!-- 정의된 매개변수 갯수보다 더 전달 시 오류발생X 초과된 전달값은 무시-->
+    <button onclick="test2('안녕하세요','홍길동이에요')">실행확인5</button>
+    <!--정의된 매개변수 갯수보다 더 적게 전달 시 오류X , undefined상태-->
+    <button onclick="test2()">실행확인6</button>
+</div>
+<!--3.매개변수와 인수 설명
+    1) 매개변수를 선언시 키워드 사용X . 변수명만 작성함
+    2) 인수 : 호출시에 전달된 값
+     (1) : 정의된 매개변수와 인수값의 갯수는달라도됨
+     (2) : 전달된 인수가없는 경우 undefined;
+     (3) : 매개변수 < 인수 : 매개변수크기만큼만 읽어냄(arguments에 전부저장은 됨)
+    3) 전개연산자
+     (1) 인수의갯수가 정해지지않은 경우 사용하는 연산자
+     (2) 매개변수를 배열로처리함 
+     (3) 정의 : functinon test(..args){...}
+    4)arguments
+     (1) 전달되는 모든 인수는 arguments에 저장
+     (2) 배열처럼 사용 됨
+-->
+
+<hr><br>
+
+<h2>함수의 리턴</h2>
+<button onclick="alert(ran())">클릭</button>
+<br>
+
+<h3>익명함수를 return</h3>
+이름 : <input type="text" id="userName">
+<button onclick="test5()();">실행확인</button>
+<!-- 함수가 리턴되므로 리턴되는 함수를 호출-->
+<!-- test5()() : test5()를 실행 ==>  () : 익명함수-->
+
+
+
+    <script src="ex15_함수.js"></script>
+    
+</body>
+</html>

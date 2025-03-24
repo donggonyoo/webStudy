@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = { //객체
+            age:30,
+            name:'길동',
+            friend : {//객체의 속성으로 객체를 사용함
+                name : '삿갓',
+                phone : "010-1111-2222"
+            },
+            hobbies : ["여행","축구","피아노"],
+            info : function(){ //속성을 익명함수로 사용
+                console.log("이름: ",obj.name,"나이:",obj.age);
+                console.log("이름: ",this.name,"나이:",this.age);
+            }
+        };
+        (obj.info)(); //obj.info의 익명함수 호출
+        (obj["info"])();
+        //객체의 속성확인
+        console.log("이름 : ",obj.name)
+        console.log("나이 : ",obj.age)
+        console.log("친구 : ",obj.friend.name , 
+            "| 번호:",obj.friend.phone )
+        console.log("취미 : ",obj.hobbies)
+        //반복문을 이용한 취미 출력
+        for(i=0;i<obj.hobbies.length;i++){
+            console.log("취미 " ,obj.hobbies[i])
+        }
+    </script>
+    <script>
+        console.log("객체의 추가 변경 삭제")
+        //객체의 속성은 동적추가가 가능
+        let computer = {};//empty 객체
+        console.log(computer);
+        
+        computer.model = "gram";
+        computer.price = 150; // 존재하지않는 속성이면 만들어서넣어줌
+        console.log(computer);
+
+        //객체의 속성 조회. for in 구문(숫자가아닌 속성값으로 조회시킴)
+        for(i in computer){
+            // console.log(i,":",computer.i)
+            console.log(i,":",computer[i])
+    //for in구문에서는 대괄호를 이용한 속성참조만 가능                                
+        }
+
+        //속성값 변경
+        computer.price = 999;
+        console.log("변경된 price :: ",computer.price)
+
+        //속성 삭제
+        delete computer.price;
+        console.log("price삭제 후 : ",computer)
+
+    </script>
+    
+</body>
+</html>

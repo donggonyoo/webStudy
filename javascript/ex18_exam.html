@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="snack"></div>
+    <script>
+        /*
+        snack객체 이용해
+        목록으로 출력
+        1 code =  A100
+        2 name = 홈런볼
+        3 price = 2000
+        */
+       let snack = {
+        code : 'A100',
+        name : "홈런볼",
+        price : 2000
+       };
+
+       let div1 = document.querySelector("#snack");
+       let a = "<ol>";
+       for(i in snack){
+        a += "<li>"+i+"="+snack[i]+"</li>";
+       }
+       a+="</ol>"
+       //다른방법의 for문을 고민해보자
+       div1.innerHTML = a;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            border: 3px double red;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h3>배열관련 메서드</h3>
+    <h4>배열.concat(배열,배열....)</h4>
+    <div id="area1" class="area"></div>
+    <button onclick="concatTest();">확인하기</button>
+
+    <hr><br>
+    <h4>배열.reverse() : 배열의 요소를 역순으로 변경</h4>
+    <div id="area2" class="area"></div>
+    <button onclick="reverseTest();">확인하기</button>
+
+    <hr><br>
+    <h4>배열.sort() : 배열의 요소를 정렬</h4>
+    <div id="area3" class="area"></div>
+    <button onclick="sortTest();">확인하기</button>
+    
+    <hr><br>
+    <h4>배열에 값을 추가 , 조회 : push ,pop</h4>
+    <div id="area4" class="area"></div>
+    <button onclick="pushPopTest();">확인하기</button>
+
+    <hr><br>
+    <h4>
+        6-1) 배열.unshifht(추가할요소) : 배열의 맨 앞에 요소 추가후 배열의크기반환<br>
+        6-2) 배열.shift() : 배열의 맨 앞에 요소 제거시키고 제거된 요소 반환
+        unshift , shift :  FIFO
+    </h4>
+    <div id="area5" class="area"></div>
+    <button onclick="shiftUnshiftTest();">확인하기</button>
+
+    <hr><br>
+    <h4>
+        7-1) 배열.slice(시작인덱스,끝인덱스) : 시작인덱스~(끝인덱스-1) 까지 추출해 반환<br>
+        7-2) 배열.splice(시작인덱스,제거수,[추가할 값]) : 배열의 요소제거 및 추가
+        unshift , shift :  FIFO
+    </h4>
+    <div id="area6" class="area"></div>
+    <button onclick="sliceSpliceTest();">확인하기</button>
+
+    <script src="ex14_배열2.js"></script>
+</body>
+</html>
