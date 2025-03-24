@@ -84,6 +84,8 @@ function sliceSpliceTest(){
 
     divEl.innerHTML += "<b>arr.splice(2,2,'spring','MyBatis')</b> "
         +arr.splice(2,2,"spring","MyBatis")+"<br>"
+        //2번인덱스부터 2개의 인덱스를 다음과같이 변경
+        // 배열.splice(시작인덱스,제거수,[추가할 값]) 배열의 요소제거 및 추가
 
     divEl.innerHTML +="arr : "+arr+"<br>";
     //원본배열에 영향을 끼침

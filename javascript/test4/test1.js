@@ -1,13 +1,18 @@
 function arrayTest(){
-    let la1 = document.querySelector("#la1").textContent.split(",");
-    let la2 = document.querySelector("#la2").textContent.split(",");
-    let la3 = document.querySelector("#la3").textContent.split(",");
-    let la4 = document.querySelector("#la4").textContent.split(",");
-
-    let total = la1.concat(la2).concat(la3).concat(la4);
-
+    let fi = document.getElementsByTagName("label");
+  
+    let arr='';
+    for(i=0;i<fi.length;i++){
+        if(i==(fi.length)-1){
+            arr += (fi[i].textContent);//마지막 요소에는 , 를붙이지않아도됨
+        }
+        else{
+            arr += (fi[i].textContent+",");
+        }
+    }
+    let total = arr.split(",");//합쳐진 text를 , 를기준으로 배열만듬
     let text = document.getElementById("text").value;
-    if(total.indexOf(text) == -1){
+    if(total.indexOf(text) == -1){//존재하지않는값을 조회 시 -1이반환됨
         alert(text+'존재X');
     }
     else{
