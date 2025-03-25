@@ -30,17 +30,24 @@
       <input type="text" id="totalPay" >
       </td></tr></table>
       <script>
-        
-        //let변수는 {} 범위까지만 작동함!
-        //또한 calc는 함수이므로 hoisting에 의해 먼저 실행되게 됨
         function calc(){
-            let payPerHour = document.getElementById("payPerHour").value;
-            //id 속성이 payPerHour인 태그의 value값
-            let time = document.getElementById("workTime").value;
-            let total = document.getElementById("totalPay");
-            total.value = (payPerHour  * time) + ( (time>8)?(payPerHour*0.5*(time-8)):0); 
+            let pay = document.querySelector("#payPerHour").value;
+            let hour = document.querySelector("#workTime").value;
+            console.log(typeof pay)
+            console.log(typeof hour)
+             //pay외hour는 String형임 + 시 그냥 문자가 이어지게될것임
+            let total = 0; 
+            for(i=1 ; i<=parseInt(hour) ; i++){
+                if(i>8){
+                    total+= (parseInt(pay) * 1.5);
+                }
+                else{
+                    total+= parseInt(pay);
+                }
+            }
+            document.querySelector("#totalPay").value += total;
         }
-
+        
 
       </script>
       

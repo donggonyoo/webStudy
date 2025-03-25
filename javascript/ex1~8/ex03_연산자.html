@@ -9,21 +9,21 @@
     <script>
         /*
         1. 산술연산자
-         1)더하기 : +
-         2) 뺴기 : -
-         3) 곱하기 : *
-         4) 나누기 : / (5/2 = 2.5) ==> parseInt(5/2) = 2 , Math.floor(5/2) = 2
-         5) 나머지 : %
-         6) 증감 : ++, --
+        1)더하기 : +
+        2) 뺴기 : -
+        3) 곱하기 : *
+        4) 나누기 : / (5/2 = 2.5) ==> parseInt(5/2) = 2 , Math.floor(5/2) = 2
+        5) 나머지 : %
+        6) 증감 : ++, --
          7) 제곱 : **  (2**3 ==> 8)
 
         2.비교연산자 : > , >= , < , <= , == , === , != , !==
             1)같다
             == : 값만비교 (1=='1' : true)
-            === : 자료형까지비교 (1==='1' : false)
+            === : 자료형까지 비교 (1==='1' : false)
             2)같지 않다
-             != : 값만 비교 ( 1 != '1' false)
-             !== : 값과 자료형비교 (1 !== '1' : true)
+            != : 값만 비교 ( 1 != '1' false)
+            !== : 값과 자료형비교 (1 !== '1' : true)
         3.논리연산자 : && , || , !
         4. 대입연산자 : = , += , -= , *= ....
         5.조건연산자 (조건식)?참:거짓
@@ -35,11 +35,22 @@
             최저시급이 9620 이다 8시간까지는 최저시급을 받고 8시간초과근무는 최저시급의1.5배받는다할떄
             10시간 근무의 일당?
             */
-           let paperHours=9620;
-           let workTime = 10;
-           let totalPay= (paperHours * workTime) + ((workTime > 8)?(paperHours * 0.5*(workTime-8)):0);
-           alert("총급여 : "+totalPay) 
-           
+
+        //    let totalPay= (paperHours * workTime) + ((workTime > 8)?(paperHours * 0.5*(workTime-8)):0);
+        // alert("총급여 : "+totalPay) 
+        let paperHours=9620;
+        let workTime = 10;
+        let total=0;
+        for(let i =1 ; i<= workTime ; i++){
+            if(i > 8){
+                total += (paperHours  * 1.5);
+            }
+            else{
+                total += (paperHours * 1 );
+            }
+        }
+        alert("총급여2 : "+total)
+        
     </script>
     
 </body>

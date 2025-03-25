@@ -7,21 +7,23 @@ function stringTest(){
     divEl.innerHTML += `toLowerCase() : ${str1.toLowerCase()}<br>`
 
     for(let i=0 ; i<str1.length ; i++){
-        divEl.innerHTML+= `${i}번쨰 인덱스 : ${str1.charAt(i)}<br>`
+        divEl.innerHTML+= `${i}번쨰 문자 : ${str1.charAt(i)}<br>`
     }
 
     //indexof : 문자의 위치리턴
+    str1 = "Hello World";
     divEl.innerHTML += "<h3>indexOf</h3>"
+    divEl.innerHTML += "str1 : "+str1+"<br>";
     divEl.innerHTML += `문자열의 길이 : ${str1.length}<br>`
     divEl.innerHTML += `앞에서부터 첫 l의위치 : ${str1.indexOf('l')}<br>`
     divEl.innerHTML += `뒤에서부터 첫 l의위치 : ${str1.lastIndexOf('l')}<br>`
-    divEl.innerHTML += `a문자의 위치 : ${str1.indexOf('a')}<br>`
+    divEl.innerHTML += `a문자의 위치(존재X) : ${str1.indexOf('a')}<br>`
     
     //부분문자열 : substring(시작인덱스,종료인덱스-1)
     //              substr(시작인덱스,글자수)
     divEl.innerHTML += "<h3>부분문자열</h3>"
     divEl.innerHTML +=`substring(시작인덱스) : ${str1.substring(6)}<br>`
-    divEl.innerHTML +=`substring(시작인덱스,끝) : ${str1.substring(6,9)}<br>`
+    divEl.innerHTML +=`substring(시작인덱스,끝+1) : ${str1.substring(6,9)}<br>`
     divEl.innerHTML +=`substr(시작인덱스) : ${str1.substr(6)}<br>`
     divEl.innerHTML +=`substr(시작,글자수) : ${str1.substr(1,4)}<br>`
 
@@ -35,6 +37,7 @@ function stringTest(){
     let str2 = "JavaJavaJavaJavaJavaJava"
     divEl.innerHTML += "str2원본 : "+str2+"<br>";
     divEl.innerHTML += `replace(원본,치환):${str2.replace('Java','자바')}<br>`;
+    //없는 문자를 입력 시 아무일도일어나지않는다.
     divEl.innerHTML += `replaceAll(원본,치환):${str2.replaceAll('Java','자바')}<br>`;
 
     //문자열의 분리

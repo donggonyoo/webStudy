@@ -6,6 +6,8 @@ function start(){
 
     let op = ['+','-','/','*','%'];
     let  a = op[Math.floor(Math.random()*op.length)];
+    // 배열[소수점버림(0~1사이의 실수 * 5)]
+    //즉 0~4 사이의 숫자가 나오게될것임(배열은 4번인덱스까지만존재)
 
     let str = num1 + a +num2;
     

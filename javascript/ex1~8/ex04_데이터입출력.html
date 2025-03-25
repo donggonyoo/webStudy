@@ -18,8 +18,7 @@
     <script>
         document.writeln("<h1 style=color:red>데이터입출력 예시</h1>")
         alert("브라우저 확인창에 메시지를 띄웁니다")
-        document.write("<hr>")
-        document.write("document.write() 함수를 이용해 화면에 출력<br>")
+        document.write("<h2 style=color:blue>document.write() 함수를 이용해 화면에 출력</h2><br>")
         let test = document.getElementById('test');//아이디가test인 태그를 가져옴
          //id가 test인 태그에 출력시킴
         test.innerHTML = "<table border='1'><tr><td>innerHTML테스트</td></tr>"+
@@ -33,11 +32,21 @@
         <li>변수 : [window.]prompt("질문내용");</li>
         <li>변수 : 특정요소.속성(id,className,innerHTML,innerText,...);</li>
     </ul>
-    <button onclick="testConfirm();">클릭</button>
+    <button id="but" onclick="testConfirm();" onmouseover="mouseOver();" onmouseout="mouseOut();">클릭</button>
     <div id="area"></div>
 
 
     <script>
+        function mouseOver(){
+            const but = document.querySelector("#but");
+            but.style.backgroundColor="red";
+        }
+        
+        function mouseOut(){
+            const but = document.getElementById("but");
+            but.style.backgroundColor=""; //마우스를 떼면 원래색으로
+            
+        }
         function testConfirm(){
             //메시지대화 창 : 
             // 1.alert("확인창") ,

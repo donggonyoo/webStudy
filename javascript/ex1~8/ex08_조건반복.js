@@ -31,7 +31,7 @@ for(n = 1 ; n<=5 ; n++){
 }
 
 n=1
-do{
+do{//do while문의 특징은 조건에안맞아도 무조건루프가 한번은 돈다
     document.querySelector("#box3").innerHTML += (n + "&nbsp;&nbsp;");
     n++;
 }

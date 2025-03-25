@@ -27,9 +27,9 @@
     <script>
         const area1 = document.querySelector("#area1");
         //이벤트 핸들러 : 이벤트 발생 시 호출되는 함수
-        document.querySelector("#btn1").onclick = function(){
-            area1.innerHTML += "btn1 버튼이클릭 되었어요 <br>";
-        }
+        document.querySelector("#btn1").onclick = ()=>
+           {area1.innerHTML += "btn1 버튼이클릭 되었어요 <br>";} 
+        
 
         document.querySelector("#btn2").onclick = function(){
             area1.innerHTML += "btn2 버튼이클릭 되었어요 btn1이벤트 제거 <br>";
@@ -64,7 +64,7 @@
     btn3.addEventListener("click",function(){
         alert("표준이벤트 모델 테스트")
     })
-    btn3.addEventListener("mouseenter",function(){ 
+    btn3.addEventListener("mouseover",function(){ 
         //"mouseenter : 마우스를 가져다 댔을 떄
         btn3.style.backgroundColor="red";
     })

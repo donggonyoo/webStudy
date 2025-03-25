@@ -9,11 +9,24 @@
 <body>
     <p>
         nums 폴더의 이미지를 num0.jpg~num9.jpg 이미지를 화면에출력하기<br>
-        slect태그를 구현해 box1에 출력
+        select태그를 구현해 box1에 출력
     </p>
     <div id="box1"></div>
     <div id="box2"></div>
-    <img src="./nums/num0.jpg">
+        <select  id="sel" onchange="check()"><!--check시 발생하는이벤트-->
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+    <div id="box3"></div>
+
     <script src="ex08_exam2.js"></script>
     
 </body>
