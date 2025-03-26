@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .droptarget{
+            float: left;    min-width: 400px;
+            min-height: 35px;  margin: 15px;
+            padding: 10px;  border: 1px solid gray;
+            overflow: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- drop(event) : 드래그 완료 시 
+     dragover(event): 드래그 대상이 내 영역위에존재
+    
+    -->
+    <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <!--
+        dragstart : 드래그시작
+        drapend : 드래그종료
+        event : DragEvent
+        draggable = "true" : 드래그 가능
+        -->
+        <img src="img/apple.gif" ondragstart="dragStart(event)" ondragend="dragEnd(event)" 
+            draggable="true" id="dragtarget1" width="100">
+        <img src="img/apple.gif" ondragstart="dragStart(event)" ondragend="dragEnd(event)" 
+            draggable="true" id="dragtarget2" width="100">
+            <p ondragstart="dragStart(event)" ondragend="dragEnd(event)" 
+                draggable="true" id="dragtarget3">이동해주세요</p>
+
+            <h1 ondragstart="dragStart(event)" ondragend="dragEnd(event)" 
+                draggable="true" id="dragtarget4">이동해주세요</h1>
+    </div>
+    <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        let demo1 = document.querySelector("#demo1");
+        let demo2 = document.querySelector("#demo2");
+        function dragStart(event){
+            //event.dataTransfer : drag and drop 기능 구현 시 드래그 중인 데이터에 접근할 수 있도록
+            //event.target : 이벤트 발생 객체 . img,p,h1 태그
+            //setData("형식",event.target.id); : 이동중인 태그의 id속성값
+            event.dataTransfer.setData("Text",event.target.id)
+            demo1.innerHTML = "이동시작"
+        }
+
+        function dragEnd(event){//드래그종료시
+            demo1.innerHTML = "이동완료"
+        }
+        function allowDrop(event){
+            event.preventDefault();// 기본이벤트 중지 . 
+            demo2.innerHTML = "drag over 시작"
+        }
+        function drop(event){
+            event.preventDefault();//기본이벤트 중지
+            let data = event.dataTransfer.getData("Text");//이동중인 태그의 id조회
+            //event.target : div 태그
+            //appendChild : 하위객체로 추가
+            event.target.appendChild(document.getElementById(data))
+
+            demo2.innerHTML = "drag drop 이벤트발생"
+        }
+
+
+    </script>
+</body>
+</html>

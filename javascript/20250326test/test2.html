@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array 객체에 contain 메서드 추가하기</title>
+</head>
+<body>
+<script type="text/javascript">
+
+const a = [273,32,103,57,52];
+
+//배열에 메서드를 추가하는방법 { 배열.메서드명}
+a.contain = (num)=>{
+   return a.includes(num);
+}
+
+
+document.write("273 in [273,32,103,57,52] : "+a.contain(273) + "<br>") //true
+document.write("0 in [273,32,103,57,52] : "+a.contain(0) + "<br>") //false
+
+</script>
+</body>
+</html>

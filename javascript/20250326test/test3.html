@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- webapp/20230327/exam1.html 
+  이미지 잡기 게임 구현하기
+  사과이미지(apple.gif)를 클릭하면 딸기 이미지(strawnerry.gif)로 변경 하고 멈추도록 
+  프로그램 작성
+  이미지의 크기는 가로세로 35px 로 지정한다.-->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 잡기 게임</title>
+<style>
+  h3{
+    text-align: center;
+    color: red;
+  }
+  img{
+    width: 50;
+    height: 50px;
+  }
+</style>
+</head>
+<body>
+  <h3></h3>
+  <script type="text/javascript">
+       function nextRandomInteger(limit){
+            return Math.round(Math.random() * limit); //0~limit범위의 정수리턴
+        }
+
+        function randomSpeed(maxSpeed){
+            return (Math.random() * maxSpeed) - (Math.random() * maxSpeed);
+            //-4 ~ 4 사이의 임의 실수
+        }
+        let canvasWidth = 700; // 이동 가로크기
+        let canvasHeight = 500; // 이동 세로크기
+        let total = 10;//글자수
+        function MovingImage(){ // 생성자(x,y,vX,vY,body의 변수보유)
+            this.x = nextRandomInteger(canvasWidth); //랜덤하게 x의 위치를 정해줌
+            this.y = nextRandomInteger(canvasHeight);
+            this.vX = randomSpeed(4);
+            this.vY = randomSpeed(4);
+            this.im = document.createElement("img");//h1태그를만든다
+            this.im.src = "img/apple.gif";
+            this.im.setAttribute("style","position:absolute");
+ 
+            document.body.appendChild(this.im); //  body에 추가
+            
+            this.im.onclick = function(){ //이미지클릭 시 
+              --total;
+              document.getElementsByTagName("h3")[0].innerHTML =(`남은 이미지 수 : ${total}`);
+              this.src = "img/banana.jpg";//im의src를 다음과같이변경
+            }
+            
+          }
+
+          MovingImage.prototype.move = function(){ 
+            //경로가 절대경로로 돼 있을수도있기때문에 include함수를이용해
+            //포함된 경우 if문 동작
+            if(this.im.src.includes('img/banana.jpg')){return;} //잡힌글자(움직임X)
+            if(this.x < 0 || this.x > canvasWidth){ //가로범위벗어날 시
+                this.vX *= -1;// vx를 반대방향으로 바꾸기
+            }
+            if(this.y < 0 || this.y > canvasHeight){
+                this.vY *= -1; // vY를 반대방향으로
+            }
+            this.x += this.vX;//가로위치값변경(-4~4사이의값이 추가됨)
+            this.y += this.vY;//세로위치값변경(-4~4사이의값이 추가됨)
+            this.im.style.left = this.x +"px";
+            this.im.style.top = this.y +"px";
+            //<h1 style=background-color:white; position:absoulute; left : 123px; top:30px>A</h1>
+        }
+        //onload : 화면이 시작됐을경우 발생되는이벤트
+        window.onload = function(){
+            let movingTexts = [];
+            for(let i =0 ; i<10 ; i++){
+                movingTexts.push(new MovingImage());
+            }//창이 켜질 떄 MovingText객체 10개 생성
+
+            // 1/60초 마다 계속실행되는 함수
+            let game = setInterval(function(){
+                for(let i in movingTexts){
+                    if(total<4){//남은A의 갯수가 4개 이하면종료
+                        alert("게임종료");
+                        clearInterval(game);//함수중지
+                        return;
+                    }
+                    movingTexts[i].move(); //모든movingText객체를 move
+                }
+            },1000/60); 
+        }
+
+         
+
+  </script>
+
+</body>
+</html>

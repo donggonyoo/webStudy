@@ -7,7 +7,6 @@ function showDiv(t){
    for(let i=0 ; i<s.length ; i++){
       s[i].style.display = 'none';
        //가져온태그의크기만큼 루프를돌려 계속 none상태로 만들어준다다
-      
    }
   
    console.log(t.id) //해당id를 확인해보기

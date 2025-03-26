@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자잡기 겜</title>
+    <style>
+        h3{
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3></h3>
+    <script type="text/javascript">
+        function nextRandomInteger(limit){
+            return Math.round(Math.random() * limit); //0~limit범위의 정수리턴
+        }
+
+        function randomSpeed(maxSpeed){
+            return (Math.random() * maxSpeed) - (Math.random() * maxSpeed);
+            //-4 ~ 4 사이의 임의 실수
+        }
+        let canvasWidth = 700; // 이동 가로크기
+        let canvasHeight = 500; // 이동 세로크기
+        let total = 10;//글자수
+        function MovingText(){ // 생성자(x,y,vX,vY,body의 변수보유)
+            this.x = nextRandomInteger(canvasWidth); //랜덤하게 x의 위치를 정해줌
+            this.y = nextRandomInteger(canvasHeight);
+            this.vX = randomSpeed(4);
+            this.vY = randomSpeed(4);
+            this.h = document.createElement("h1");//h1태그를만든다
+            this.h.innerHTML = "A";//태그에 A를 넣는다
+            this.h.setAttribute("style","background-color : white");//h1에 style을 넣고 뒤에속성을 추가
+            this.h.style.position = "absolute";
+            let text = this.h; // h1태그
+
+            this.h.onclick = function(){
+                --total;
+                document.getElementsByTagName("h3")[0].innerHTML 
+                            = ("남은 문자 수 : "+total);
+                text.innerHTML = "B"; //클릭시 B로 변경
+            }
+            //document.body : <body></body>
+            //appendChild : 하위태그에 추가 (즉 body안에넣는다)
+            document.body.appendChild(this.h); //화면에 추가
+        }
+
+        //prototype : 객체외부에서 멤버함수 추가
+        //MovingText.move() 추가 ( 움직이게하는 함수)
+        MovingText.prototype.move = function(){ 
+            if(this.h.innerHTML == 'B')return; //잡힌글자(움직임X)
+            if(this.x < 0 || this.x > canvasWidth){ //가로범위벗어날 시
+                this.vX *= -1;// vx를 반대방향으로 바꾸기
+            }
+            if(this.y < 0 || this.y > canvasHeight){
+                this.vY *= -1; // vY를 반대방향으로
+            }
+            this.x += this.vX;//가로위치값변경(-4~4사이의값이 추가됨)
+            this.y += this.vY;//세로위치값변경(-4~4사이의값이 추가됨)
+            this.h.style.left = this.x +"px";
+            this.h.style.top = this.y +"px";
+            //<h1 style=background-color:white; position:absoulute; left : 123px; top:30px>A</h1>
+        }
+        //onload : 화면이 시작됐을경우 발생되는이벤트
+        window.onload = function(){
+            let movingTexts = [];
+            for(let i =0 ; i<10 ; i++){
+                movingTexts.push(new MovingText());
+            }//창이 켜질 떄 MovingText객체 10개 생성
+
+            // 1/60초 마다 계속실행되는 함수
+            let game = setInterval(function(){
+                for(let i in movingTexts){
+                    if(total<4){//남은A의 갯수가 4개 이하면종료
+                        alert("게임종료");
+                        clearInterval(game);//함수중지
+                        return;
+                    }
+                    movingTexts[i].move(); //모든movingText객체를 move
+                }
+            },1000/60); 
+        }
+        
+    </script>
+    
+</body>
+</html>
