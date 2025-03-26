@@ -41,5 +41,21 @@ function test3(){
 
 function test4(){
     let imText = document.querySelector("input[name='img']").value;
+    document.querySelector(".img-container").innerHTML+=
+    (`<img src='${imText}' witdth="200" height="200">`);
+}
+
+function test5(){
+    let di = document.querySelector(".data-container");
+    let ta = di.getElementsByTagName("*");
+   arr = [];
+   for(i=0 ; i<ta.length ; i++){
+    if(ta[i].innerHTML.length >=3){
+        arr.push(ta[i].innerHTML);
+    }
+   }
+
+
+    document.querySelector("#checkStr").innerHTML = arr;
 }
 
