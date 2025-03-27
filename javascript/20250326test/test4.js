@@ -46,16 +46,23 @@ function test4(){
 }
 
 function test5(){
-    let di = document.querySelector(".data-container");
-    let ta = di.getElementsByTagName("*");
-   arr = [];
-   for(i=0 ; i<ta.length ; i++){
-    if(ta[i].innerHTML.length >=3){
-        arr.push(ta[i].innerHTML);
+    let data = document.querySelectorAll(".data-container>*");
+    let result = document.querySelector("#checkStr");
+    //.data-container>* : class(data-container)태그의 모든 자식태그
+   for(i=0 ; i<data.length ; i++){
+    if(data[i].innerHTML.length >=3){
+    //  result.innerHTML += data[i].innerHTML+" ";
+    //  result.appendChild(data[i])
+
+
+     //복제할요소객체.cloneNode(논리값) : 복제된요소객체
+     let copy = data[i].cloneNode(true); 
+     // true : textNode까지 모두복제 / false : elementNode만복제
+     result.appendChild(copy);
     }
    }
 
 
-    document.querySelector("#checkStr").innerHTML = arr;
+   
 }
 

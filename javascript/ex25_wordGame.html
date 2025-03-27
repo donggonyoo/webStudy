@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{position: absolute;}
+        #main{width: 450px; height: 400px;
+             border: 1px solid blue;  overflow: hidden;}
+        input{
+            position: absolute; top: 410px;
+            left: 10px;     size: 200px;
+        }
+        #scoreArea{
+            position: absolute; top: 410px;
+            left: 210px;
+            border: 1px solid #333333;
+            width: 200px; height: 20px;
+        }
+        #score{
+            display: inline; /* 크기 적용 */
+            position: relative;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <div style="width: 400px;">
+        <input type="text" onchange="deleteMode(this.value)" id="input">
+        <div id="scoreArea">점수:
+            <div id="score"></div>
+        </div>
+    </div>
+    <script>
+        let datas = [
+            ["태연","유리","윤아","효연","수영","서현","티파니","써니","제시카"],
+            ["원영","유진","이서","레이","리즈","가을"],
+            ["카리나","윈터","닝닝","지젤"]
+        ];
+        let cnt=0;
+        let words=[];
+        let colors = ['red','blue','green','gray','orange','pink']
+        let canvasWidth = 400;
+        let canvasHeight= 400;
+        window.onload = function(){
+            cm = setInterval(createMode,2000); //2초마다 데이터추가
+            mm = setInterval(moveMode,500); //0.5초마다 이동
+        }
+        function MovingChar(){
+            this.h3 = document.createElement('h3');
+            this.h3.innerHTML = randomDate();
+            this.x = random(canvasWidth); //랜덤한너비
+            this.y = 0;
+            this.vY = 10; // 단어이동의 간격
+            this.h3.style.position = 'absolute';
+            this.h3.style.left = this.x +'px';
+        this.h3.style.color = colors[random(6)]; //0~5번인덱스의 랜덤한 색깔
+            document.querySelector("#main").appendChild(this.h3);
+            //#main 하위에 h3를 넣는다
+        }
+        MovingChar.prototype.move = function(){
+            if((this.x+this.h3.innerHTML.length)>canvasWidth){
+                this.x=canvasWidth-(this.h3.innerHTML.length+1);
+            }
+            this.y += this.vY; //y축변화주기
+            this.h3.style.top = this.y +'px'; //y축간격 적용
+        };
+
+        MovingChar.prototype.remove = function(){//remove함수 : 자식을 지운다
+            //removeChild : 자식태그제거
+            document.querySelector("#main").removeChild(this.h3);
+        };
+
+        function createMode(){
+            words.push(new MovingChar());
+        }
+        function moveMode(){
+            for(let i in words){//words배열의 크기만큼 루프
+                words[i].move(); //y축변화
+                if(words[i].y >= canvasHeight-30){ //바닥에닿은경우
+                    document.querySelector("#main").removeChild(words[i].h3);
+                    delete(words[i]);
+                    clearInterval(cm); //숫자만들기종료
+                    clearInterval(mm); // 이동종료
+                    for(let j in words){
+                        words[j].h3.style.color = 'grey';
+                        //게임종료시 글자색 변경
+                    }
+                    alert("게임종료")
+                }
+            }
+        }
+        function random(num){
+            let num1 = Math.random()*num;
+            return  parseInt(num1);
+        }
+        
+        function randomDate(){
+            let num1 = parseInt(Math.random()*3); // 0~2
+            let num2 = parseInt(Math.random()*datas[num1].length); //0~배열의마지막인덱스
+            return datas[num1][num2];
+        }
+        //input데이터의 value값입력시  호출되는 함수
+        function deleteMode(str){
+            for(let i in words){
+                words[i].move();
+                if(words[i].h3.innerHTML === str){ //입력받은수와 words배열에 요소중 하나와 같다면
+                    document.querySelector("#main").removeChild(words[i].h3); // 없애기
+                    delete(words[i]);// 메모리에서도없앰
+                    document.querySelector("#score").innerHTML = ++cnt; // count++;
+                }
+            }
+            document.querySelector("#input").value="";
+            document.querySelector("#input").focus();
+        }     
+    </script>
+</body>
+</html>
