@@ -28,10 +28,16 @@
         function test(){
             let a = new Person("유동곤",26,176.5 , 77 , "서울시 금천",'2000/11/20'); //생성자로 객체를 하나만듬
             let ul = document.querySelector(".list-data>ul");
+            
+            for(let key in a){
+                ul.innerHTML+= `<li>${key} : ${a[key]}</li>`;
+
+            }
+          
             //ul의 태그 내에 li태그를 만든 후 각 요소를 집어넣음
-            ul.innerHTML += `<li>name: ${a.name}</li> 
-            <li>age: ${a.age}</li><li>height: ${a.height}</li><li>weight: ${a.weight}</li>
-            <li>addr: ${a.addr}</li><li>birth: ${a.birth}</li>`
+            // ul.innerHTML += `<li>name: ${a.name}</li> 
+            // <li>age: ${a.age}</li><li>height: ${a.height}</li><li>weight: ${a.weight}</li>
+            // <li>addr: ${a.addr}</li><li>birth: ${a.birth}</li>`
         }
     </script>
 </body>

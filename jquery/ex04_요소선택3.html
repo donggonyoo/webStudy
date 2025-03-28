@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script src="jquery_3.7.1.js"></script>
+    <hr>
+    <h3>* 상태 (checked, selected , enabled , disabled) 선택자</h3>
+    <h4> - checked 상태 선택자(radio , checkbox)</h4>
+    취미:
+    <input type="checkbox" name="hobby" value="game" id="game">
+    <label for="game">게임</label>
+    <input type="checkbox" name="hobby" value="movie" id="movie">
+    <label for="movie">영화</label>
+    <input type="checkbox" name="hobby" value="music" id="music">
+    <label for="music">음악</label>
+    <button id="btn" type="button">실행확인</button>
+    <script>
+        /*
+        $("#btn").click(function(){
+            //실행버튼 클릭시 checked상태인요소를 선택해 크기변경
+            $("input:checked").css({width:50,height:50});
+        })*/
+       //checkbox요소들이
+       //선택상태 : 크기를크게
+       //선택해저 : 크기를 작게
+
+       //change : onchage 이벤트처리 함수
+       //(값이 변경 시 발생되는 이벤트처리)
+       $(":checkbox").change(function(){
+        if($(this).prop("checked")){ 
+            $(this).css({width:50,height:50});
+        //label값의 글자크기변경
+        //label은 해당태그의 뒤쪽에위치함(next()사용해서찾자)
+            $(this).next().css("font-size","50px")
+        }
+        else{ // checked 속성값이 없는경우
+            $(this).css({width:"",height:""});
+        }
+       })
+    </script>
+
+    <hr>
+    <h4>--selected 상태 선택자 (select>option)</h4>
+    국적 :
+    <select name="national" >
+        <option value="x" selected>선택X</option>
+        <option value="ko">한국</option>
+        <option value="us">미국</option>
+        <option value="eu">영국</option>
+    </select>
+    <button type="button" onclick="test()">확인</button>
+    <br>
+    선택한나라 : <span id="result">선택안함</span>
+    <script>
+        function test(){
+            //$("option:selected") : option태그중 상태값이 selected인태그
+            $("#result").html($("option:selected").html()+","+$("option:selected").val())
+            //class가 result인 태그의 값에 <== 선택된option의 태그내부문(innerHTML) + , + 선택된option의value
+        }
+    </script>
+    <hr>
+    <h4>- disabled , enabled 상태선택자(input요소들, button 등)/h4>
+        <button type="button">활성화</button>
+        <button type="button" disabled>비활성화</button>
+        <script>
+            $("button:enabled").css({backgroundColor:"yellow" , cursor:"pointer"});
+            $("button:disabled").css({backgroundColor:"blue" , color:"white"});
+        </script>
+</body>
+</html>

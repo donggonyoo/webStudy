@@ -16,7 +16,8 @@
 <script>
     function test12(){
         let con = document.querySelector("#text-container");
-        let i = document.querySelector(".input-data").value;
+        // let i = document.querySelector(".input-data").value;
+        let i  = window.event.target.value;
         con.innerHTML =`입력된글자 :${i} 글자수 :${i.length}`
     }
 </script>

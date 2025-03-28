@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소선택</title>
+    <script src="jquery_3.7.1.js"></script>
+</head>
+
+<body>
+    <h1>선택자를이용한 요소선택</h1>
+    <h3>아이디선택자</h3>
+    <p>고유한 아이디값을 가진 요소 " 하나만"을 선택하고자 할 떄</p>
+    <h1 id="id1">테스트1</h1> <!--순수 자바스크립트 방식-->
+    <h1 id="id2">테스트2</h1> <!-- jQuery 방식-->
+
+    <script>
+        $(function(){
+            document.getElementById("id1").style.color = "red";
+            document.getElementById("id1").innerHTML = "h1변경";
+
+            $("#id2").css("color","yellow"); 
+            $("#id2").html("h1변경"); //innerHTML과 관련된기능 수행
+            console.log(document.getElementById("id1"));
+            console.log($("#id2"))
+            // jQuery객체가 나올것임
+        })
+    </script>
+    <hr>
+    <h3>* 태그 선택자</h3>
+    <p>JAVA</p><p>MariaDB  </p> <p>HTML</p>
+    <h5>CSS</h5><h5>JavaScript</h5><h5>jQuery</h5>
+    <script>
+        $(function(){
+            const p =document.getElementsByTagName("p");
+            for(let i =0 ; i<p.length ; i++){
+                p[i].style.color = "pink";        
+            }
+            //jQuery방식 : $("태그명")
+            $("h5").css("color","blue");//h5 태그들의 글자색을 blue 변경
+            //$("선택자") : p or h5 or #id1 태그의 배경색을 yellow로변경
+            $("p,h5,#id1").css("backgroundColor","yellow")
+        })
+    </script>
+    <hr>
+    <h3>*클래스선택자</h3>
+    <p>특정클래스 속성을 가진 요소들 선택하고자할 떄</p>
+    <h1 class="item">Class1</h1>
+    <h1 class="item select">Class2</h1>
+    <h1 class="item select">Class3</h1>
+    <script>
+        $(function(){
+            const item = document.getElementsByClassName("item");//클래스속성이item인
+            //item : class속성값이 item인  태그들 (배열객체)
+            for(let i=0 ; i<item.length ; i++){
+                item[i].style.color = "orange";
+                item[i].onclick = function(){
+                    console.log("클릭")
+                }
+            }
+            //jQuery방식 : $(".class속성")
+            $(".select").css("backgroundColor","pink");
+            $(".select").click(function(){
+                console.log("클릭!")
+            })
+        })
+    </script>
+    
+</body>
+</html>
