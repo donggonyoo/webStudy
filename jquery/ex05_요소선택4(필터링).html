@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h3> * 필터링관련 선택자</h3>
+
+    <!-- 6행4열-->
+     <table border="1">
+        <tr><th>이름</th><th>혈액형</th><th>거주지</th><th>(first(0))</th></tr>
+        <tr><td>홍길동</td><td>A형</td><td>서울</td><th>(1)</th></tr>
+        <tr><td>김영희</td><td>B형</td><td>울산</td><th>(2)</th></tr>
+        <tr><td>김삼순</td><td>O형</td><td>부산</td><th>(3)</th></tr>
+        <tr><td>김동호</td><td>AB형</td><td>수원</td><th>(4)</th></tr>
+        <tr><th colspan="2">총인원</th><th>4명</th><th>(last(5))</th></tr>
+     </table>
+     <script>
+        $(function(){
+           //tr태그의 짝수인덱스(0부터시작)
+            $("tr:even").css({backgroundColor:"lightgray"}) 
+            //tr태그의 홀수인덱스(0부터시작)
+            $("tr:odd").css({backgroundColor:"yellow"}) 
+             //tr태그의 첫번째행
+            $("tr:first").css({backgroundColor:"black" ,color:"white"})
+             //tr태그의 마지막행
+            $("tr:last").css({backgroundColor:"red" ,color:"white"})
+        })
+     </script>
+
+     <hr>
+     <h3>필터링관련메서드</h3>
+     <p>
+        기준이되는 요소중에서 특정요소만을 걸러서 선택해주는메서드(선택요소 반환)<br>
+        first() , last() , filter() , eq() , not() ,even() ,odd()
+     </p>
+
+     <h4 class="test">test-1</h4>
+     <h4 class="test">test-2</h4>
+     <h4 class="test">test-3</h4>
+     <h4 class="test">test-4</h4>
+     <h4>test-5</h4>
+     <h4 class="test">test-6</h4>
+     <script>
+        $(function(){
+            $("h4").first().css("font-size","20px");//h4의처음
+            $("h4").last().css("font-size","30px");//h4의마지막
+
+            //filter(선택자) : 해당하는 태그 처리
+            //h4태그 중 class='test'인 태그들만!
+            $("h4").filter(".test").html("<font color='red'>텍스트변경</font>");
+
+            //h4태그 중 class='test'인 태그들만!
+            $("h4").not(".test").css({color:"red" });
+            //html() : innerHTML 관련함수
+            //text() : innerText 관련함수
+            //eq(인덱스) : 여러개의 태그 중 인덱스에 해당하는 태그선택(0부터시작)
+            $("h4").eq(3).text("<font color='red'>eq(3).text</font>")
+
+            //class가 test이면서 짝수인덱스(0부터시작)
+            $(".test").even().css({backgroundColor:"green"}) 
+            //class가 test이면서 홀수인덱스(0부터시작)
+            $(".test").odd().css({backgroundColor:"yellow"})
+        })
+     </script>
+
+<hr>
+     <h4>
+      h3태그 짝수인덱스(even)를 노랑바탕 파란글씨 , 홀수인덱스(odd) 검정바탕에 노란글씨
+     </h4>
+     <h3>H3:Header_0</h3><h3>H3:Header_1</h3><h3>H3:Header_2</h3>
+     <h3>H3:Header_3</h3><h3>H3:Header_4</h3><h3>H3:Header_5</h3>
+     <script>
+      $("h3").odd().css({backgroundColor:"black" , color:"yellow"})
+      $("h3").even().css({backgroundColor:"yellow" , color:"blue"})
+     </script>
+
+     <hr>
+     <h4>
+         h1태그 중 3의배수인경우 검정바탕에 흰글씨로<br>
+         3배수의 나머지가1인경우 노랑바탕에 파란글씨로
+         3배수의 나머지가2경우 파랑바탕에 노란글씨
+     </h4>
+     <p>
+      nth-child(3n+1) : 태그의종류에 상관없이 갯수 설정 <br>
+      nth-of-type(3n) : 태그종류별 갯수설정
+      둘 다 인덱스가 아닌 순서로처리함(1번부터시작)
+   </p>
+     <h1>H3:Header_0</h1><h1>H3:Header_1</h1><h2>H3:Header_2(1번쨰)</h2>
+     <h1>H3:Header_3</h1><h1>H3:Header_4</h1><h2>H3:Header_5(2번째)</h2>
+     <h1>H3:Header_6</h1><h1>H3:Header_7</h1><h2>H3:Header_8(3번째)</h2>
+     <script>
+      $(function(){
+         /*
+         $("h2:nth-child(3n)").css({backgroundColor:"black" , color:"white"})
+         $("h2:nth-child(3n+1)").css({backgroundColor:"yellow" , color:"blue"})
+         $("h2:nth-child(3n+2)").css({backgroundColor:"blue" , color:"yellow"})
+         */
+         $("h2:nth-of-type(3n)").css({backgroundColor:"black" , color:"white"})
+         $("h2:nth-of-type(3n+1)").css({backgroundColor:"yellow" , color:"blue"})
+         $("h2:nth-of-type(3n+2)").css({backgroundColor:"blue" , color:"yellow"})
+      });
+
+
+      //h1태그의 바탕색을 빨강 , 오렌지 노랑 초록 파랑 남색 설정
+      $(function(){
+         // $("h1").first().css({backgroundColor:"red"})
+         // $("h1").eq(1).css({backgroundColor:"orange"})
+         // $("h1").eq(2).css({backgroundColor:"yellow"})
+         // $("h1").eq(3).css({backgroundColor:"green"})
+         // $("h1").eq(4).css({backgroundColor:"blue"})
+         // $("h1").last().css({backgroundColor:"purple"})
+         $("h1:first()").css({backgroundColor:"red"})
+         $("h1:eq(1)").css({backgroundColor:"orange"})
+         $("h1:eq(2)").css({backgroundColor:"yellow"})
+         $("h1:eq(3)").css({backgroundColor:"green"})
+         $("h1:eq(4)").css({backgroundColor:"blue"})
+         $("h1:last()").css({backgroundColor:"purple"})
+      })
+     </script>    
+</body>
+</html>
