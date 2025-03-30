@@ -8,15 +8,15 @@ for(let i=0; i<nums.length ; i++){
 
 for(let a=0;a<100;a++){
     //0~9의 랜덤함숫자
-    //floor : 작은 근사정수
-    let ran = Math.floor(Math.random()*nums.length);
+    //floor : 작은 근사정수(0.0~9.9)==> 0~9  
+    let ran = Math.floor(Math.random()*nums.length)
     let tmp = nums[0];
     nums[0] = nums[ran];
     nums[ran] = tmp; //100번 동안 섞는다(num배열)
 }
 
 for(let i =0 ; i<answer.length ; i++){
-    answer[i] = nums[i]; // num[0~3](4개) answer에 집어넣는다
+    answer[i] = nums[i]; // num[0~3](4개) answer(크기4의배열)에 집어넣는다
 }
 
 window.onload = function(){ //창을 띄울 떄 발생함
@@ -24,6 +24,14 @@ window.onload = function(){ //창을 띄울 떄 발생함
         let img = document.createElement("img");//img태그생성
         document.querySelector("#card").append(img);
     } // card태그 내에 img 4개만듬
+}
+
+document.querySelector("#userNum").onkeyup = (event)=>{
+    //text의 value에서 enter키를 누른다면
+    // 자바스크립트가  button을 클릭시킴
+    if(event.keyCode==13){ //13 == enter 키
+        document.querySelector("#inbtn").onclick();
+    }
 }
 
 document.querySelector("#inbtn").onclick = ()=>{ //입력버튼 클릭시 발생
@@ -55,32 +63,19 @@ for(let v1 in inputArr){ //중복숫자 검사
             cc++;
         }
     }
-    if(cc>1){
+    if(cc>1){ //루프한번에 cc가 1개초과로올라갈 시  return;(1개는 자신)
         alert("중복숫자 입력불가능");
+        document.querySelector("#userNum").value = "";
         document.querySelector("#userNum").focus();
         return;
         }
-    }
+ }
+ 
 //------------------
     //중복되지않은 4개의숫자 입력한 경우
     matchingNum(v_userNum); //입력숫자에대해 S,B의 갯수 or 성공여부 판단
     document.querySelector("#userNum").value="";//숫자입력 후 초기화
-
-    /*
-        keyEvent
-        keydown : 키가 내려갈때
-        keypress : 키를 누르고있을 떄(deprecated됨)
-        keyup :  키가 올라올 때
-    */
-    document.querySelector("#userNum").onkeyup = (event)=>{
-        //text의 value에서 enter키를 누른다면
-        // 자바스크립트가  button을 클릭시킴
-        if(event.keyCode==13){ //13 == enter 키
-            document.querySelector("#inbtn").onclick();
-        }
-    
-    }
-    // console.log(answer);답을 console에띄움
+    // console.log(answer);  답을 console에띄움
 }
 
 function matchingNum(usernum){//입력받은숫자를 받음
@@ -109,7 +104,7 @@ function matchingNum(usernum){//입력받은숫자를 받음
         document.querySelector("button").onclick = ()=>{
             location.reload();//F5버튼과 같은 동작(새로고침)
         }
-        cimgs = document.getElementsByTagName("img");
+        cimgs = document.getElementsByTagN00ame("img");
         //cimgs = 배열객체 (4개의img태그 저장)
         for(let i in cimgs){
              //cimgs[i](4개의이미지)에  answer[i] 이름 가진 사진넣기
@@ -123,9 +118,9 @@ function matchingNum(usernum){//입력받은숫자를 받음
         let result_div = document.querySelector("#result");
         result_div.innerHTML += ++trycount +"번쨰 도전 : "+strike+ball
         +",유저입력값 : "+usernum+"<br>"
-        if(trycount>9){//10번쨰시도가 최대임(자동 페이지 새로고침)
+        if(trycount>=15){//10번쨰시도가 최대임(자동 페이지 새로고침)
             alert("최대시도 초과")
-            location.reload();
+            location.reload();//새로고침
         }
     }
 }

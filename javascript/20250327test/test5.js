@@ -7,7 +7,8 @@ data = [
 
 function test1(){
     let tab = document.querySelector("#data-table");
-    a = `<table border=1>`;
+    a = `<table border=1><th>no</th> <th>title</th> 
+    <th>writer</th> <th>enrolldate</th>`;
     for(let i =0 ; i<data.length ; i++){
             a+= `<tr>`;
          for(j in data[i]){
