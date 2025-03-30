@@ -17,6 +17,7 @@
   img{
     width: 50;
     height: 50px;
+    background-color: white;
   }
 </style>
 </head>
@@ -24,7 +25,7 @@
   <h3></h3>
   <script type="text/javascript">
        function nextRandomInteger(limit){
-            return Math.round(Math.random() * limit); //0~limit범위의 정수리턴
+            return Math.round(Math.random() * limit); //0 ~ limit범위의 정수리턴
         }
 
         function randomSpeed(maxSpeed){
@@ -40,15 +41,16 @@
             this.vX = randomSpeed(4);
             this.vY = randomSpeed(4);
             this.im = document.createElement("img");//h1태그를만든다
-            this.im.src = "img/apple.gif";
+            this.im.src = "img/apple.gif"; // 초반이미지
             this.im.setAttribute("style","position:absolute");
  
-            document.body.appendChild(this.im); //  body에 추가
+            document.body.appendChild(this.im); //  body에 img 추가
             
             this.im.onclick = function(){ //이미지클릭 시 
               --total;
               document.getElementsByTagName("h3")[0].innerHTML =(`남은 이미지 수 : ${total}`);
               this.src = "img/banana.jpg";//im의src를 다음과같이변경
+              //여기서의 this : img(클릭이벤트가발생한 곳)
             }
             
           }
@@ -66,9 +68,8 @@
             }
             this.x += this.vX;//가로위치값변경(-4~4사이의값이 추가됨)
             this.y += this.vY;//세로위치값변경(-4~4사이의값이 추가됨)
-            this.im.style.left = this.x +"px";
-            this.im.style.top = this.y +"px";
-            //<h1 style=background-color:white; position:absoulute; left : 123px; top:30px>A</h1>
+            this.im.style.left = this.x +"px";//왼쪽의 공백
+            this.im.style.top = this.y +"px";//위쪽에서의 공백
         }
         //onload : 화면이 시작됐을경우 발생되는이벤트
         window.onload = function(){

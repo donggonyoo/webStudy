@@ -9,10 +9,15 @@
 
 const a = [273,32,103,57,52];
 
-//배열에 메서드를 추가하는방법 { 배열.메서드명}
-a.contain = (num)=>{
-   return a.includes(num);
+//배열객체의 메서드 생성
+Array.prototype.contain = (num)=>{
+   return a.indexOf(num) >=0 ;
+   //없는 요소를 넣으면 -1이 반환 
+   // false를 반환할것임
 }
+// a.contain = (num)=>{
+//    return a.indexOf(num) >=0 ;
+// } 다음과같이 해당배열에만 메서드추가가능
 
 
 document.write("273 in [273,32,103,57,52] : "+a.contain(273) + "<br>") //true

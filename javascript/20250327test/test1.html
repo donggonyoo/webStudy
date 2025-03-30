@@ -8,6 +8,7 @@
     <style>
         *{box-sizing: border-box;}
     </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <h2>
@@ -30,13 +31,20 @@
     <script>
         function test(){
             let num = document.querySelectorAll("input");
-            console.log(num[0].value)
-            console.log(num[1].value)
-
+            let num1 = num[0].value
+            let num2 = num[1].value
             let sel = document.querySelector("#op").value;//선택된 option 값
-            console.log(sel)
-            document.querySelector("#calc-result").innerHTML
-            =eval(num[0].value+sel+num[1].value); //eval() // 연산을해줌 
+            let result = document.querySelector("#calc-result");
+
+            result.innerHTML = eval(num1+sel+num2); 
+            //eval() : 연산을해줌 (문자열의+는 문자열붙이기임)
+            
+
+            // let sel2  = $("option:selected").val(); jQuery로 작성한 방법법
+            // $("div#calc-result").html(eval(num1+sel2+num2)); 
+
+
+           
 
         }
         
