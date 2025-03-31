@@ -17,17 +17,29 @@
             width: 1000px;
             height: 800px;
             position: absolute;
+            overflow: auto;
         }
         #start{
             top: 800px;
             position: relative;
         }
-        #human{
-            height: 100px;
-            width: 100px;
-            top: 650px; 
-            position: relative;
+        i{
+            font-size: 25px;
+            border: 1px solid green;
         }
+        i.fa-poo,i.fa-bomb{
+            font-size: 25px;
+            border: 1px solid red;
+        }
+        #human {
+         height: 30px;
+        width: 30px;
+        top: 700px; 
+        background-color: white;
+        border: 1px solid green;
+         position: relative;
+        }
+
         #score{
             border: 2px solid black;
             position: relative;
@@ -39,9 +51,9 @@
 
 <body>
     <div id="main"></div>
-    <button id="start"  >게임시작</button>
+    <button id="start" onclick="start();" >게임시작</button>
     <div id="score">점수 : </div>
-    <img id="human" src="../img/human.png">
+    <img id="human" src="../img/human.png" >
     
 
     <script src="game.js"></script>
