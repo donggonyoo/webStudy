@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap , .wrap *{ /*wrap과 wrap의 모든하위태그 적용*/
+            border: 1px solid lightgray;
+            display: block;
+            padding: 5px;
+            margin: 20px; /*외부와의 간격 15px*/
+            color: gray;
+        }
+    </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h3>sideways(동위)
+메서드기준이요소와같은레벨에있는 다른요소들을 선택할수있는 메서드</h3>
+        <div class="wrap">
+            <p>p</p>
+            <span>span</span>
+            <h2>h2</h2>
+            <h3>h3</h3>
+            <p>p</p>
+        </div>
+        <script>
+            $(function(){
+                const style1 = {color:"red",border:"2px solid red"};
+                const style2 = {color:"blue",border:"2px solid blue"};
+                const style3 = {color:"yellow",border:"2px solid yellow"};
+                const style4 = {backgroundColor:"aqua",color:"red"};
+                //$("선택자").siblings()
+                //선택된요소와 같은레벨(같은블럭)의 다른요소 모두 선택
+                $("h2").siblings().css(style1);
+
+                //$("선택자").siblings("선택자2")
+                //선택된요소와 같은레벨의 다른요소 중 선택자2요소
+                $("h2").siblings("p").css(style2);
+
+                /*
+                next() | prev(): 해당태그의 바로 다음 | 앞 요소 1개
+                nextAll() | prevAll(): 해당태그 다음 | 앞 요소 전부
+                */
+                $("h2").next().css(style3);
+                $("h2").nextAll().css(style4);
+
+                //nextUntil("p") : 선택이후의 p태그 앞 까지
+                $("h2").nextUntil("p").css("font-size" , "3em");
+                $("h2").prev().css("backgroundColor" , "pink");
+                $("h2").prevAll().css(style4);
+                //$("선택자").prevUntil("p") 선택자 이전의 p태그 앞 까지
+                $("h2").prevUntil("p").css("border-style","dotted");
+
+
+
+
+
+            })
+
+        </script>
+    
+</body>
+</html>

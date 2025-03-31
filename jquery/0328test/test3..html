@@ -34,7 +34,7 @@
 
 	<script>
 		function printValue(){
-			let buyer = $("input")[0].value;
+			let buyer = $("input").eq(0).val();
 			let names = $("#pname").val();
 			let price = $("input[name*=pr]").val(); 
 			//input태그 중 name에 pr을 포함하는것만

@@ -1,5 +1,5 @@
 let text = document.querySelector("input[type='text']");
-let but = document.querySelectorAll("input[type='button']");
+let but = document.querySelectorAll(" #calculator input[type='button']");
 
 for(i=0;i<but.length;i++){ //모든루프를 돌린다
     but[i].onclick=function(){

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>이벤트핸들러 연결 방법</h1>
+    <h3>이벤트메서드 이용</h3>
+    <h4 id="test1">클릭</h4>
+    <script>
+        $(function(){
+            $("#test1").click(function(){
+                //this : 이벤트소스(target)
+                $(this).text("클릭되었어요");
+            })
+            $("#test1").dblclick(function(){//doubleClick
+                $(this).css({color:"red"});
+            })
+
+            $("#test1").click(function(){
+                $(this).css({backgroundColor:"yellow"});
+            })
+
+        })
+    </script>
+<!----------------------------------------------------------------------------------------------------------------->
+    
+    <h3>on메서드이용</h3>
+    <h4 id="test2">마우스클릭 및 올려보세요</h4>
+    <script>
+        //on 메서드 : 하나의요소에 1개이상의 이벤트 등록가능
+        //이벤트:function(){...}과 같은형태로 사용가능
+        $(function(){
+            $("#test2").on({mouseover:function(){ //mouseover이벤트등록
+                $(this).css({backgroundColor:"yellowgreen"}).text("마우스올라감")
+            },mouseout:function(){//mouseout이벤트등록
+                $(this).css({backgroundColor:"yellow"}).text("마우스 나감")
+            },click:function(){//click 이벤트등록
+                $(this)
+                .off("mouseover")//.off(이벤트명) : 이벤트핸들러 제거
+                .off("mouseout")//자신(test2)의 mouserover,mouserout 이벤트삭제
+                .css({backgroundColor:"gray"})
+                .text("이벤트제거")
+            }
+        })
+    })
+    </script>
+    <h3>on메서드 이용2</h3>
+    <div id="wrap">
+        <h4>h4 클릭해보세요</h4>
+        <h5>h5 클릭해보세요</h5>
+    </div>
+    <h5>div 바깥쪽 h5</h5>
+    <script>
+        $(function(){
+            //id=wrap 하위의 h4,h5가 click 시
+            /*
+            $("상위요소").on("이벤트명","하위요소선택자(이벤트등록을 위한 요소)",function(){..})
+            선택된 상위요소의 하위요소에서 이벤트 발생시 .. 실행
+            */
+            $("#wrap").on("click","h4,h5",function(){
+                $(this).html("안녕");
+            })
+            //문서밑의 h5객체가 클릭됐을 때
+            $(document).on("click","h5",function(){
+                $(this).css("color","pink")
+            })
+        })
+    </script>
+<!----------------------------------------------------------------------------------------------------------------->
+    <hr>
+    <h3>동적으로 생성된 요소에 이벤트적용</h3>
+    <div id="area2" style="border: 1px solid red;">
+        <h6>문서에 존재하는 h6요소</h6>
+    </div>
+    <script>
+        //#area2>h6 클릭 시 h6태그 동적 요소 만들기 
+
+   /*1 . 이벤트함수이용
+        $(function(){
+            $("#area2>h6").click(function(){
+                //동적태그 h6에는 이벤트가적용이되지않음
+                $("#area2").append("<h6>CLICK을 이용해만들어진 태그</h6>")
+            })
+        })*/
+   
+   /* 2. on함수이용
+   이것또한 동적태그에는 이벤트등록이안됨
+    $("#area2>h6").on("click",function(){
+        $("#area2").append("<h6>CLICK을 이용해만들어진 태그</h6>")
+    })*/
+
+    // 3. on함수이용(동적태그도 이벤트 등록)
+    $("#area2").on("click","h6",function(){
+        $("#area2").append("<h6>CLICK을 이용해만들어진 태그</h6>")
+    })
+    </script>
+    <hr>
+    <h3>일회성이벤트 등록</h3>
+    <button id="test3">딱 한번만 실행
+    <script>
+        //one() : 일회성이벤트
+        //방식 : $(이벤트대상).one("이벤트타입",이벤트핸들러러)
+        //one : 단 한번만 사용하는 함수
+        $(function(){
+            $("#test3").one("click",function(){
+                alert("한번 실행 후 다시 실행 안함")
+            });
+        })
+        /*
+            1.이전 사용하던 메서드
+            bind()
+            live()
+            delegate()
+        */
+    </script>
+
+
+    
+</body>
+</html>

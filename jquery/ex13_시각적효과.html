@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{cursor: pointer;}
+    </style>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <h3># show() , hide() , toggle()</h3>
+    <p>선택된 요소가 점점 커지면서 보여지고 , 점점작아지면서 사라지게하는 메서드</p>
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+    <br><br>
+    <div id="area" style="background-color: red; width: 100px; height: 100px;"></div>
+    <img id="flower" src="../html1/images/flower3.jpg" width="200">
+    <script>
+        $(function(){
+            $("#hide").click(function(){
+                //hide(ms) : ms초에 걸쳐  사라짐
+                //한번 더 클릭시 변화 X
+                $("#flower").hide(1000); 
+                $("#area").hide(1000);
+            })
+            $("#show").click(function(){
+                $("#flower").show(1000); 
+                $("#area").show(1000);
+                //show(ms) : ms초에걸쳐 보여줌
+                //한번더 클릭 시 변화없음
+            })
+            $("#toggle").click(function(){
+                $("#flower").toggle(1000); //1초에걸쳐 보여줌
+                $("#area").toggle(1000);
+                //toggle(ms) : ms에 걸쳐 보여줌 
+                // 한번 더 클릭시 ms초에걸쳐 사라짐
+            })
+        })
+    </script>
+    
+</body>
+</html>

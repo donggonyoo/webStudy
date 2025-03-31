@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <h3>textarea 태그에 100자까지 입력<br>
+        글자를 입력 할 때마다 #remainum 위치에<br>
+        만일 입력한내용이 100자를 넘는경우 빨간색글씨의 음수출력
+        100자가 안넘는경우는 파란색 숫자로입력
+    </h3>
+    <p>글쓰기</p><h1 id="remainnum">100</h1>
+    <textarea rows="10" cols="70"></textarea>
+    
+</body>
+<script>
+    const  a = $("#remainnum").text(); //remainnum의 초기값
+    $("textarea").on({keyup:function(){
+        let cnt = a-$(this).val().length; // textarea의 length를 계산
+        if(cnt>=0){ // 0보다크다면 파란글씨
+            $("#remainnum").html(cnt).css({color:"blue"})
+        }
+        else{//0보다작다면 빨간색글씨
+            $("#remainnum").html(cnt).css({color:"red"})
+        }
+    }})
+    
+
+</script>
+</html>

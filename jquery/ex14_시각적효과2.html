@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <h3># fadeOut() , fadeIn() , FadeToggle()</h3>
+    <p>선택된 요소가 점점 커지면서 보여지고 , 점점작아지면서 사라지게하는 메서드</p>
+    <button onclick="test1()">숨기기</button>
+    <button onclick="test2()">보여주기</button>
+    <button onclick="test3()">토글</button>
+    <br><br>
+    <img id="flower" src="../html1/images/flower1.jpg" width="200">
+    <script>
+        function test1(){
+            $("#flower").fadeOut(2000);
+        }
+        function test2(){
+            $("#flower").fadeIn(2000);
+        }
+
+        function test3(){
+            $("#flower").fadeToggle(2000);
+        }
+    </script>
+    <hr>
+    <h3># slideDown() 과 slideUp()</h3>
+    <div>Q.반품 언제돼요?</div>
+    <p>A. 확인 후에 안내해드리겠습니다</p>
+    <div>Q. 상품 위치를 알고싶어요</div>
+    <p>A. 배송조회바람</p>
+    <div>Q. 현재 이 제품있나요</div>
+    <p>A. 네 있어요</p>
+    <div>Q. 판매자가연락이안됩니다</div>
+    <p>A. 1500-1234로 문의해주세요</p>
+    <script>
+        $(function(){
+            $("div").click(function(){
+                const $p = $(this).next(); //클릭된 div의 다음태그(p)
+                //$p : jQuery방식 객체(변수명앞에 $를 표시하곤한다.)
+
+                if($p.css("display")=="none"){
+                    /*$("선택자").silbling("태그") => 
+                     상위가 선택자인
+                    다른 태그들을 선택*/
+                //slideUp() : 해당요소를 안보이게한다
+                    $(this).siblings("p").slideUp();
+                    $p.slideDown();//$p태그만 보이도록하기
+                }
+                else{ // 클릭된 div의 하위인 $p를 안보이게한다
+                    $p.slideUp();
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>
