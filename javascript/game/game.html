@@ -12,48 +12,97 @@
             padding: 0px;
 
         }
+        #sel{
+            border: 5px solid black;
+            width: 1500px;
+            height: 1500px;
+            background-image: url(../img/back.png);
+        }
+        td>img{
+            height: 300px;
+        }  
         #main{
             border: 1px solid red;
             width: 1000px;
             height: 800px;
+            background-color: black;
             position: absolute;
             overflow: auto;
+            display: none;
+        }
+        #func{
+            display: none;
         }
         #start{
-            top: 800px;
+            top: 805px;
+            left: 400px;
+            font-size: 40px;
             position: relative;
+            background-color: black;
+            color: white;
+            border-radius: 20px;
         }
-        i{
+        i.fa-star, i.fa-thumbs-up{
             font-size: 25px;
+            background-color: white;
             border: 1px solid green;
         }
+        i.fa-star{
+            color: #FFD43B;
+        }
+        i.fa-thumbs-up{
+            color: #c8a251;
+        }
+
         i.fa-poo,i.fa-bomb{
             font-size: 25px;
             border: 1px solid red;
+            background-color: white;
+            color: brown;
+        }
+        i.fa-bomb{
+            color: black;
         }
         #human {
          height: 30px;
         width: 30px;
-        top: 700px; 
+        top: 750px; 
         background-color: white;
         border: 1px solid green;
          position: relative;
         }
 
         #score{
-            border: 2px solid black;
-            position: relative;
-            top: 800px;
+            color: white;
+            text-align: center;
+            top: 810px;
+            width: 1000px;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <div id="main"></div>
-    <button id="start" onclick="start();" >게임시작</button>
-    <div id="score">점수 : </div>
-    <img id="human" src="../img/human.png" >
+    <div id="sel">
+        <table border="1">
+            <caption style="font-size: 45px; color: white;">캐릭터를 선택해보세요</caption>
+            <tr>
+                <td ><img src="../img/human1.png" onclick="character(this.src);"></td>
+                <td ><img src="../img/human2.png" onclick="character(this.src);"></td>
+            </tr>
+            <tr>
+                <td ><img src="../img/human3.png" onclick="character(this.src);"></td>
+                <td ><img src="../img/human4.png" onclick="character(this.src);"></td>
+            </tr>
+        </table>     
+    </div>
+    <div id="main">
+        <div id="score" >점수 : </div>
+    </div>
+    <div id="func">
+        <button id="start" onclick="start();" >Start</button>
+        <img id="human">
+    </div>
     
 
     <script src="game.js"></script>

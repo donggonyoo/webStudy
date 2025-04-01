@@ -1,4 +1,12 @@
 //--------------------------------사람이 움직이는 코드------------------------
+function character(e){
+    console.log(e);
+    document.querySelector("#human").src = e;
+    $("#sel").css({display:"none"})
+    $("#main").css({display:"block"}) //캐릭터를 고르면 none --> block
+    $("#func").css({display:"block"})
+}
+
 $(document).ready(function() {
     const $human = $("#human");
     const $main = $("#main");
@@ -16,12 +24,12 @@ $(document).ready(function() {
 
     $(document).keydown(function(event) {
         if (event.key === "ArrowLeft") {
-            if (positionX > -78) { // 왼쪽 경계 체크
+            if (positionX > 0) { // 왼쪽 경계 체크
                 positionX -= step;
             }
         }
         if (event.key === "ArrowRight") {
-            if (positionX < mainWidth - humanWidth) { // 오른쪽 경계 체크
+            if (positionX < mainWidth - humanWidth - 10) { // 오른쪽 경계 체크
                 positionX += step;
             }
         }
@@ -36,14 +44,14 @@ let ddong = $("<i></i>").addClass("fa-solid fa-poo")
 let bomb = $("<i></i>").addClass("fa-solid fa-bomb")
 let good = $("<i></i>").addClass("fa-solid fa-thumbs-up")
 let arr = [star,ddong,bomb,good];
-let canvasWidth = 1000;
+let canvasWidth = 950;
 let canvasHeight= 800;
 let total=0;
 let icons =[];
 
 function start(){
-    cm = setInterval(createMode,2000); //2초마다 데이터추가
-    mm = setInterval(moveMode,500); //0.5초마다 이동
+    cm = setInterval(createMode,1000); //2초마다 데이터추가
+    mm = setInterval(moveMode,100); //0.5초마다 이동
 
 };
 
@@ -54,7 +62,7 @@ function MovingIcons(){
     this.h5.appendChild(iconElement[0]);  //h5의 하위에 넣기
     this.x = random(canvasWidth); //랜덤한너비
     this.y = 0;
-    this.vY = 55; // 단어이동의 간격
+    this.vY = 15; // 단어이동의 간격
     this.h5.style.position = 'absolute';
     this.h5.style.left = this.x +'px';
     this.h5.width= 100;
@@ -76,28 +84,36 @@ MovingIcons.prototype.move = function(){
 function moveMode(){
     for(let i in icons){//words배열의 크기만큼 루프
         icons[i].move(); //y축변화
-         $human = $("#human");
+        $human = $("#human"); //사람(캐릭터)을 jQuery객체변환
         let $icon = $(icons[i].h5); // jQuery 객체로 변환
+
         if(icons[i].y >= canvasHeight-20 ){ //바닥에닿은경우  
             document.querySelector("#main").removeChild(icons[i].h5);
             delete(icons[i]);
         }
-        else if($icon.find(".fa-poo").length>0 && !isColliding($icon,$human)){
-            $("#score").html("점수 : "+(++total));
+       if($icon.find(".fa-poo").length>0 && !isColliding($icon,$human)){
+            total -= 1;
+            $("#score").html("점수 : "+(total));
             clearInterval(cm); //숫자만들기종료
             clearInterval(mm); // 이동종료
             
-            alert("똥밟은 병장")
+            alert("똥")
+            if(confirm("게임을 다시시작하실건가요?")){
+                location.reload();
+            }
         }
+        
     }
 }
 
-function isColliding($icon, $human) {
+ //충돌감지 함수  true : 겹치지않음 false: 겹침
+function isColliding($icon, $human) { 
+   
     let iconRect = $icon[0].getBoundingClientRect();
     //getBoundingClientRect();요소의위치정보를 가져옴
     let humanRect = $human[0].getBoundingClientRect();
 
-    return(
+    return( //겹치지않는조건들 
         iconRect.bottom < humanRect.top ||   // 아이콘이 사람 위쪽에 완전히 있음
         iconRect.top > humanRect.bottom ||   // 아이콘이 사람 아래쪽에 완전히 있음
         iconRect.right < humanRect.left ||   // 아이콘이 사람 왼쪽에 완전히 있음
