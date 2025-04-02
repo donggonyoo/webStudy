@@ -42,49 +42,67 @@
             color: white;
             border-radius: 20px;
         }
-        i.fa-star, i.fa-thumbs-up{
-            font-size: 25px;
-            background-color: white;
-            border: 1px solid green;
+        i{/*https://fontawesome.com/icons*/
+            font-size: 40px;
+            background-color: black;
         }
         i.fa-star{
             color: #FFD43B;
         }
+
         i.fa-thumbs-up{
             color: #c8a251;
         }
+        i.fa-thumbs-down{
+            color: #db2956;
+        }
+        i.fa-wand-magic-sparkles{
+            color: #63E6BE;
 
-        i.fa-poo,i.fa-bomb{
-            font-size: 25px;
-            border: 1px solid red;
-            background-color: white;
-            color: brown;
+        }
+        i.fa-poo{
+            color: rgba(165, 42, 42, 0.613);
         }
         i.fa-bomb{
-            color: black;
-        }
+            color: red;
+        } /*각 아이콘마다 다른색깔*/
         #human {
-         height: 30px;
-        width: 30px;
+        height: 40px;
+        width: 40px;
         top: 750px; 
         background-color: white;
         border: 1px solid green;
+        border-radius: 20px;
          position: relative;
         }
 
         #score{
             color: white;
             text-align: center;
+            text-shadow:2px 2px red;
+            font-size: 40px;
             top: 810px;
             width: 1000px;
         }
+        #gameTime{
+            text-align: center;
+            font-size: 50px;
+            color: red;
+
+        }
+        #ex{
+            display: none;
+            font-size: 30px;
+        }
+        
+        
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="sel">
-        <table border="1">
+        <table border="1" id="tab">
             <caption style="font-size: 45px; color: white;">캐릭터를 선택해보세요</caption>
             <tr>
                 <td ><img src="../img/human1.png" onclick="character(this.src);"></td>
@@ -94,10 +112,34 @@
                 <td ><img src="../img/human3.png" onclick="character(this.src);"></td>
                 <td ><img src="../img/human4.png" onclick="character(this.src);"></td>
             </tr>
-        </table>     
+        </table> 
+        <table id="ex" border="1" style="background-color: white;">
+            <caption> 룰 설명</caption>
+            <tr><th colspan="6">날라오는 아이콘을 피하세요(←,→ 키만 사용가능)</th></tr>
+            <tr>
+                <th><i class="fa-solid fa-wand-magic-sparkles"></i></th>
+                <th><i class="fa-solid fa-star" ></i></th>
+                <th><i class="fa-solid fa-thumbs-up"></i></th>
+                <th><i class="fa-solid fa-thumbs-down"></i></th>
+                <th><i class="fa-solid fa-poo" ></i></th>
+                <th><i class="fa-solid fa-bomb"></i></th>
+            </tr>
+            <tr>
+                <td>5점</td><td>3점</td><td>1점</td>
+                <td>-1점</td><td>-3점</td><td>-5점</td>
+            </tr>
+            <tr><th colspan="6">제한시간 60초를 다 쓰거나
+                -10점 이상이되면 게임LOSE
+            </th></tr>
+            <tr><th colspan="6">게임시간이 끝난 기준 10점이 넘으면 게임WIN</th></tr>
+            
+            
+        </table>
+
     </div>
     <div id="main">
         <div id="score" >점수 : </div>
+        <div id="gameTime"></div>
     </div>
     <div id="func">
         <button id="start" onclick="start();" >Start</button>

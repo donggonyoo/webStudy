@@ -1,11 +1,36 @@
 //--------------------------------사람이 움직이는 코드------------------------
+let gameTime=60;
+let star =  $("<i></i>").addClass("fa-solid fa-star")
+let ddong = $("<i></i>").addClass("fa-solid fa-poo")
+let bomb = $("<i></i>").addClass("fa-solid fa-bomb")
+let good = $("<i></i>").addClass("fa-solid fa-thumbs-up")
+let bad = $("<i></i>").addClass("fa-solid fa-thumbs-down")
+let magic = $("<i></i>").addClass("fa-solid fa-wand-magic-sparkles")
+let arr = [star,ddong,bomb,good,bad,magic];
+let canvasWidth = 950;
+let canvasHeight= 760;
+let total=0;
+let icons =[];
+
+
 function character(e){
     console.log(e);
     document.querySelector("#human").src = e;
-    $("#sel").css({display:"none"})
-    $("#main").css({display:"block"}) //캐릭터를 고르면 none --> block
-    $("#func").css({display:"block"})
+    $("#tab").css({display:"none"}) //캐릭터창none처리
+   
+
+   let ex = setInterval(function(){
+        $("#ex").css({display:"block"})     
+        setTimeout(function(){
+            clearInterval(ex);
+            $("#sel").css("display", "none")
+            $("#main").css({display:"block"})  //메인의화면을 나타나게
+            $("#func").css({display:"block"})// start버튼이 다시 나타나게
+        },3000); //3초뒤에 해당함수를 종료시킨 후 배경을 none처리함
+    },100)
 }
+
+
 
 $(document).ready(function() {
     const $human = $("#human");
@@ -24,12 +49,12 @@ $(document).ready(function() {
 
     $(document).keydown(function(event) {
         if (event.key === "ArrowLeft") {
-            if (positionX > 0) { // 왼쪽 경계 체크
+            if (positionX > -100) { // 왼쪽 경계 체크
                 positionX -= step;
             }
         }
         if (event.key === "ArrowRight") {
-            if (positionX < mainWidth - humanWidth - 10) { // 오른쪽 경계 체크
+            if (positionX < mainWidth - humanWidth - 100) { // 오른쪽 경계 체크
                 positionX += step;
             }
         }
@@ -39,26 +64,21 @@ $(document).ready(function() {
 });
 
 //-------------------------장애물 생성코드-------------------------------
-let star =  $("<i></i>").addClass("fa-solid fa-star")
-let ddong = $("<i></i>").addClass("fa-solid fa-poo")
-let bomb = $("<i></i>").addClass("fa-solid fa-bomb")
-let good = $("<i></i>").addClass("fa-solid fa-thumbs-up")
-let arr = [star,ddong,bomb,good];
-let canvasWidth = 950;
-let canvasHeight= 800;
-let total=0;
-let icons =[];
+
 
 function start(){
     cm = setInterval(createMode,1000); //2초마다 데이터추가
     mm = setInterval(moveMode,100); //0.5초마다 이동
+    setInterval(function(){
+        $("#gameTime").html(gameTime--);  
+    },1000)
 
 };
 
 
 function MovingIcons(){
     this.h5 = document.createElement('h5');
-    let iconElement = arr[random(4)].clone(); // jQuery 객체 복사
+    let iconElement = arr[random(6)].clone(); // jQuery 객체 복사
     this.h5.appendChild(iconElement[0]);  //h5의 하위에 넣기
     this.x = random(canvasWidth); //랜덤한너비
     this.y = 0;
@@ -85,22 +105,34 @@ function moveMode(){
     for(let i in icons){//words배열의 크기만큼 루프
         icons[i].move(); //y축변화
         $human = $("#human"); //사람(캐릭터)을 jQuery객체변환
+        console.log(icons[i].h5.querySelector("i"))
         let $icon = $(icons[i].h5); // jQuery 객체로 변환
-
-        if(icons[i].y >= canvasHeight-20 ){ //바닥에닿은경우  
+        if(icons[i].y >= canvasHeight ){ //바닥에닿은경우  
             document.querySelector("#main").removeChild(icons[i].h5);
             delete(icons[i]);
         }
-       if($icon.find(".fa-poo").length>0 && !isColliding($icon,$human)){
-            total -= 1;
-            $("#score").html("점수 : "+(total));
+        if(gameTime==58){ //0초되면 종료
+            alert("게임종료!!!")
             clearInterval(cm); //숫자만들기종료
             clearInterval(mm); // 이동종료
-            
-            alert("똥")
-            if(confirm("게임을 다시시작하실건가요?")){
+        if(confirm("게임을 다시시작하실건가요?")){
                 location.reload();
             }
+        }
+
+        //충돌 시 
+
+        if( !isColliding($icon,$human)){
+            let iconFind = icons[i].h5.querySelector("i");
+            
+            if(iconFind.classList.contains("fa-star")){
+                document.querySelector("#main").removeChild(icons[i].h5);
+                delete(icons[i]);
+                total += 3;
+                $("#score").html("점수 : "+(total));   
+                
+            }
+           
         }
         
     }
