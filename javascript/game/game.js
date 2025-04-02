@@ -144,8 +144,10 @@ function moveMode(){
             switch(true){
                 case iconFind.classList.contains("fa-wand-magic-sparkles") : {
                     humanState(true);total+=5;}break;
-                case iconFind.classList.contains("fa-star") : total+=3;break;
-                case iconFind.classList.contains("fa-thumbs-up") : total+=1;break;
+                case iconFind.classList.contains("fa-star") : {
+                    humanState(true);total+=3;}break;
+                case iconFind.classList.contains("fa-thumbs-up") : {
+                    humanState(true);total+=1;}break;
 
                 case iconFind.classList.contains("fa-thumbs-down") : {
                     humanState(false); total-=1;}break;
