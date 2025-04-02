@@ -62,9 +62,9 @@ $(document).ready(function() {
 
 
 function start(){
-    cm = setInterval(createMode,800); //0.8초마다 데이터추가
-    mm = setInterval(moveMode,80); //80ms마다 이동
-    setInterval(function(){
+    cm = setInterval(createMode,600); //0.8초마다 데이터추가
+    mm = setInterval(moveMode,60); //80ms마다 이동
+    setInterval(function(){ //게임시간
         $("#gameTime").html(gameTime--);  
     },1000)
 
