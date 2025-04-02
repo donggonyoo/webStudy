@@ -1,5 +1,5 @@
 //--------------------------------사람이 움직이는 코드------------------------
-let gameTime=60;
+let gameTime=30; //게임시간
 let star =  $("<i></i>").addClass("fa-solid fa-star")
 let ddong = $("<i></i>").addClass("fa-solid fa-poo")
 let bomb = $("<i></i>").addClass("fa-solid fa-bomb")
@@ -27,9 +27,9 @@ function character(e){
     })
 }
 
-$(document).ready(function() {
-    const $human = $("#human");
-    const $main = $("#main");
+$(document).ready(function() { //HTML문서가 모두 불러와진 후
+    const $human = $("#human");//사람 jqeury객체로변환
+    const $main = $("#main");//게임배경 jqeury객체로변환
 
     const mainWidth = $main.width();  // #main의 너비
     const humanWidth = $human.width(); // #human의 너비
@@ -37,7 +37,7 @@ $(document).ready(function() {
     // 초반 위치를 중앙에 설정
     let positionX = (mainWidth - humanWidth) / 2 ; 
     //아이콘의크기까지생각
-    const step = 10; // 한 번에 이동할 거리
+    const step = 15; // 한 번에 이동할 거리
 
     // 초기 위치 적용
     $human.css({ left: positionX + "px" });
@@ -63,7 +63,7 @@ $(document).ready(function() {
 
 function start(){
     cm = setInterval(createMode,600); //0.8초마다 데이터추가
-    mm = setInterval(moveMode,60); //80ms마다 이동
+    mm = setInterval(moveMode,60); //60ms마다 이동
     setInterval(function(){ //게임시간
         $("#gameTime").html(gameTime--);  
     },1000)
@@ -96,28 +96,66 @@ MovingIcons.prototype.move = function(){
     this.h5.style.top = this.y +'px'; //y축간격 적용
 };
 
+function createMode(){
+    icons.push(new MovingIcons());
+}
+function random(num){ // 0<= x <num의 정수
+    let num1 = Math.random()*num;
+    return  parseInt(num1);
+}
+
+ //충돌감지 함수  true : 겹치지않음 false: 겹침
+function isColliding($icon, $human) { 
+    let iconRect = $icon[0].getBoundingClientRect();
+    //getBoundingClientRect();요소의위치정보를 가져옴
+    let humanRect = $human[0].getBoundingClientRect();
+    return( //  not(겹치지않는조건들)
+       !(iconRect.bottom < humanRect.top ||   // 아이콘이 사람 위쪽에 완전히 있음
+        iconRect.top > humanRect.bottom ||   // 아이콘이 사람 아래쪽에 완전히 있음
+        iconRect.right < humanRect.left ||   // 아이콘이 사람 왼쪽에 완전히 있음
+        iconRect.left > humanRect.right )     // 아이콘이 사람 오른쪽에 완전히 있음 
+    );
+}
+function humanState(a){
+    if(a){
+        $("#human").css({ border: "1px solid green"});
+        //+점수얻었을 경우 green테두리
+    }
+    else{
+        $("#human").css({ border: "1px solid red"});
+        //-점수얻었을 경우 red테두리
+    }
+    setTimeout(function(){
+        $("#human").css({ border: "none"});
+        },400);//0.4초 후 원상태복구  
+}
+
 function moveMode(){
     for(let i in icons){//words배열의 크기만큼 루프
         icons[i].move(); //y축변화
         $human = $("#human"); //사람(캐릭터)을 jQuery객체변환
         console.log(icons[i].h5.querySelector("i"))
         let $icon = $(icons[i].h5); // jQuery 객체로 변환
-        
-
-        //충돌 시 
-
-        
-        if( !isColliding($icon,$human)){
+        //충돌했다면 함수는 false를 반환할것임
+        if(isColliding($icon,$human)){
             let iconFind = icons[i].h5.querySelector("i");
             //switch(true) : case조건에 true가 되는지 확인할수있음
             //contains("a")의결과는 ture | false
             switch(true){
-                case iconFind.classList.contains("fa-wand-magic-sparkles") : total+=5;break;
+                case iconFind.classList.contains("fa-wand-magic-sparkles") : {
+                    humanState(true);total+=5;}break;
                 case iconFind.classList.contains("fa-star") : total+=3;break;
                 case iconFind.classList.contains("fa-thumbs-up") : total+=1;break;
-                case iconFind.classList.contains("fa-thumbs-down") : total-=1;break;
-                case iconFind.classList.contains("fa-poo") : total-=3;break;
-                case iconFind.classList.contains("fa-bomb") : total-=5;break;
+
+                case iconFind.classList.contains("fa-thumbs-down") : {
+                    humanState(false); total-=1;}break;
+
+                case iconFind.classList.contains("fa-poo") :{
+                    humanState(false);total-=3;}break;
+
+                case iconFind.classList.contains("fa-bomb") :{
+                    humanState(false);total-=5;}break;
+
                 default : break;
             }
             //main에서 제거
@@ -158,37 +196,7 @@ function moveMode(){
     }
 }
 
- //충돌감지 함수  true : 겹치지않음 false: 겹침
-function isColliding($icon, $human) { 
-   
-    let iconRect = $icon[0].getBoundingClientRect();
-    //getBoundingClientRect();요소의위치정보를 가져옴
-    let humanRect = $human[0].getBoundingClientRect();
 
-    return( //겹치지않는조건들 
-        iconRect.bottom < humanRect.top ||   // 아이콘이 사람 위쪽에 완전히 있음
-        iconRect.top > humanRect.bottom ||   // 아이콘이 사람 아래쪽에 완전히 있음
-        iconRect.right < humanRect.left ||   // 아이콘이 사람 왼쪽에 완전히 있음
-        iconRect.left > humanRect.right      // 아이콘이 사람 오른쪽에 완전히 있음
-    );
-}//충돌감지함수
-
-
-
-function createMode(){
-    console.log("실행")
-    icons.push(new MovingIcons());
-}
-
-function randomDate(){ //배열에서 랜덤하게뽑을것임
-    let num = parseInt(Math.random()*4); //0~3인덱스
-    return arr[num].prop("outerHTML");
-}
-
-function random(num){
-    let num1 = Math.random()*num;
-    return  parseInt(num1);
-}
 
 
 

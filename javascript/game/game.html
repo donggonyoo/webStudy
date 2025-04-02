@@ -34,26 +34,27 @@
         #start{
             border: none;
             cursor: pointer;
-            top: 870px;
+            top: 840px;
             left: 400px;
             font-size: 40px;
             position: relative;
             background-color: red;
             color: white;
-            border-radius: 20px;
+            border-radius: 15px;
+        }
+        #start:hover{
+            font-size:50px;
         }
         #human {
-        height: 60px;
-        width: 60px;
-        top: 815px; 
-        border: 1px solid green;
+        height: 80px;
+        width: 80px;
+        top: 795px; 
         border-radius: 20px;
          position: relative;
         }
 
         i{/*https://fontawesome.com/icons*/
             font-size: 40px;
-            background-color: black;
         }
         i.fa-star{
             color: #FFD43B;
@@ -82,13 +83,14 @@
             text-align: center;
             text-shadow:2px 2px red;
             font-size: 40px;
-            top: 810px;
-            width: 1000px;
+           
         }
         #gameTime{
             text-align: center;
-            font-size: 50px;
+            font-size: 40px;
             color: red;
+            text-shadow:2px 2px white;
+            
 
         }
         #ex{
@@ -125,11 +127,12 @@
             <tr>
                 <td ><img src="../img/human1.png" onclick="character(this.src);"></td>
                 <td ><img src="../img/human2.png" onclick="character(this.src);"></td>
+                <td ><img src="../img/human3.png" onclick="character(this.src);"></td>
             </tr>
             <tr>
-                <td ><img src="../img/human3.png" onclick="character(this.src);"></td>
                 <td ><img src="../img/human4.png" onclick="character(this.src);"></td>
-                <td><img src="../img/gam.jpeg" onclick="character(this.src);"></td>
+                <td><img src="../img/human5.png" onclick="character(this.src);"></td>
+                <td><img src="../img/human6.png" onclick="character(this.src);"></td>
             </tr>
             
                 
@@ -167,7 +170,7 @@
         <div id="gameTime"></div>
     </div>
     <div id="startAndHuman">
-        <button id="start" onclick="start();" >Start</button>
+        <button id="start" onclick="start();" >game Start</button>
         <img id="human">
     </div>
     
