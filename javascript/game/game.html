@@ -4,119 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        /*css아이콘사용 위함*/
-         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-        *{ margin: 0px;padding: 0px;}
-
-        #sel{ /*캐릭터선택창*/
-            border: 5px solid black;
-            width: 1500px;
-            height: 1500px;
-            background-image: url(../img/back.png);
-        }
-
-        td>img{ /*캐릭터선택창의 이미지*/
-            height: 300px;
-        }  
-        #main{/*캐릭터선택창을 위해 none처리*/
-            background-image: url(../img/back.png);
-            width: 1300px;
-            height: 880px;
-            position: absolute;
-            display: none;
-        }
-
-        #startAndHuman{/*캐릭터선택창을 위해 none처리*/
-            display: none;
-        }
-
-        #start{
-            border: none;
-            cursor: pointer;
-            top: 840px;
-            left: 400px;
-            font-size: 40px;
-            position: relative;
-            background-color: red;
-            color: white;
-            border-radius: 15px;
-        }
-        #start:hover{
-            font-size:50px;
-        }
-        #human {
-        height: 80px;
-        width: 80px;
-        top: 795px; 
-        border-radius: 20px;
-         position: relative;
-        }
-
-        i{/*https://fontawesome.com/icons*/
-            font-size: 40px;
-        }
-        i.fa-star{
-            color: #FFD43B;
-        }
-
-        i.fa-thumbs-up{
-            color: #c8a251;
-        }
-        i.fa-thumbs-down{
-            color: #db2956;
-        }
-        i.fa-wand-magic-sparkles{
-            color: #63E6BE;
-
-        }
-        i.fa-poo{
-            color: rgba(165, 42, 42, 0.613);
-        }
-        i.fa-bomb{
-            color: red;
-        } /*각 아이콘마다 다른색깔*/
-       
-
-        #score{
-            color: white;
-            text-align: center;
-            text-shadow:2px 2px red;
-            font-size: 40px;
-           
-        }
-        #gameTime{
-            text-align: center;
-            font-size: 40px;
-            color: red;
-            text-shadow:2px 2px white;
-            
-
-        }
-        #ex{
-            display: none;
-            font-size: 30px;
-            width: 1000px;
-            height: 500px;
-        }
-        #goMain{
-            color: white;
-            text-shadow: 3px 5px 8px rgba(0, 0, 0, 0.7);
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            border: none;
-            border-radius: 50px;
-            font-size: 50px;
-            cursor: pointer;
-        }
-        #goMain:hover{
-            font-size: 60px;
-        }
-        body{
-            background-color: grey;
-        }
-        
-        
-    </style>
+    <link rel="stylesheet" href="game.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
@@ -133,10 +21,7 @@
                 <td ><img src="../img/human4.png" onclick="character(this.src);"></td>
                 <td><img src="../img/human5.png" onclick="character(this.src);"></td>
                 <td><img src="../img/human6.png" onclick="character(this.src);"></td>
-            </tr>
-            
-                
-            
+            </tr>  
         </table> 
         <table id="ex" border="1" style="background-color: white;">
             <caption> 룰 설명</caption>
@@ -159,12 +44,11 @@
             <tr><th colspan="6">게임시간이 끝난 기준 50점이 넘으면 게임WIN</th></tr>
             <tr>
                 <th colspan="6" rowspan="3"><button id="goMain">게임화면으로</button></th>
-            </tr>
-            
-            
+            </tr> 
         </table>
-
     </div>
+
+    
     <div id="main">
         <div id="score" >점수 : </div>
         <div id="gameTime"></div>
@@ -176,7 +60,5 @@
     
 
     <script src="game.js"></script>
-
-
 </body>
 </html>
