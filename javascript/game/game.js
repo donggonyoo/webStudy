@@ -7,30 +7,25 @@ let good = $("<i></i>").addClass("fa-solid fa-thumbs-up")
 let bad = $("<i></i>").addClass("fa-solid fa-thumbs-down")
 let magic = $("<i></i>").addClass("fa-solid fa-wand-magic-sparkles")
 let arr = [star,ddong,bomb,good,bad,magic];
-let canvasWidth = 950;
-let canvasHeight= 760;
+let canvasWidth = 1200;
+let canvasHeight= 830;
 let total=0;
 let icons =[];
 
 
+//캐릭터 선택 시
 function character(e){
     console.log(e);
     document.querySelector("#human").src = e;
     $("#tab").css({display:"none"}) //캐릭터창none처리
+    $("#ex").css({display:"block"}) 
    
-
-   let ex = setInterval(function(){
-        $("#ex").css({display:"block"})     
-        setTimeout(function(){
-            clearInterval(ex);
-            $("#sel").css("display", "none")
-            $("#main").css({display:"block"})  //메인의화면을 나타나게
-            $("#func").css({display:"block"})// start버튼이 다시 나타나게
-        },3000); //3초뒤에 해당함수를 종료시킨 후 배경을 none처리함
-    },100)
+    $("#goMain").click(function(){ //게임화면으로 버튼 클릭 시
+        $("#sel").css("display", "none")//설명창 none처리
+        $("#main").css({display:"block"})  //메인의 화면을 나타나게
+        $("#startAndHuman").css({display:"block"})// start버튼이 다시 나타나게
+    })
 }
-
-
 
 $(document).ready(function() {
     const $human = $("#human");
@@ -67,8 +62,8 @@ $(document).ready(function() {
 
 
 function start(){
-    cm = setInterval(createMode,1000); //2초마다 데이터추가
-    mm = setInterval(moveMode,100); //0.5초마다 이동
+    cm = setInterval(createMode,800); //0.8초마다 데이터추가
+    mm = setInterval(moveMode,80); //80ms마다 이동
     setInterval(function(){
         $("#gameTime").html(gameTime--);  
     },1000)
@@ -107,32 +102,57 @@ function moveMode(){
         $human = $("#human"); //사람(캐릭터)을 jQuery객체변환
         console.log(icons[i].h5.querySelector("i"))
         let $icon = $(icons[i].h5); // jQuery 객체로 변환
-        if(icons[i].y >= canvasHeight ){ //바닥에닿은경우  
-            document.querySelector("#main").removeChild(icons[i].h5);
-            delete(icons[i]);
-        }
-        if(gameTime==58){ //0초되면 종료
-            alert("게임종료!!!")
-            clearInterval(cm); //숫자만들기종료
-            clearInterval(mm); // 이동종료
-        if(confirm("게임을 다시시작하실건가요?")){
-                location.reload();
-            }
-        }
+        
 
         //충돌 시 
 
+        
         if( !isColliding($icon,$human)){
             let iconFind = icons[i].h5.querySelector("i");
-            
-            if(iconFind.classList.contains("fa-star")){
-                document.querySelector("#main").removeChild(icons[i].h5);
-                delete(icons[i]);
-                total += 3;
-                $("#score").html("점수 : "+(total));   
-                
+            //switch(true) : case조건에 true가 되는지 확인할수있음
+            //contains("a")의결과는 ture | false
+            switch(true){
+                case iconFind.classList.contains("fa-wand-magic-sparkles") : total+=5;break;
+                case iconFind.classList.contains("fa-star") : total+=3;break;
+                case iconFind.classList.contains("fa-thumbs-up") : total+=1;break;
+                case iconFind.classList.contains("fa-thumbs-down") : total-=1;break;
+                case iconFind.classList.contains("fa-poo") : total-=3;break;
+                case iconFind.classList.contains("fa-bomb") : total-=5;break;
+                default : break;
             }
-           
+            //main에서 제거
+            document.querySelector("#main").removeChild(icons[i].h5);
+            delete(icons[i]); //객체를 완전히삭제해준다
+            $("#score").html("점수 : "+(total));     
+        }
+
+        if(icons[i].y >= canvasHeight ){ //바닥에닿은경우 icon없애기
+            document.querySelector("#main").removeChild(icons[i].h5);
+            delete(icons[i]);
+        }
+        if(total<= -10){
+            alert("점수미달로 인한 강제종료")
+            clearInterval(cm); //숫자만들기종료
+            clearInterval(mm); // 이동종료
+            alert("초기화면으로돌아갑니다")
+            location.reload();
+            return;
+        }
+
+        if(gameTime==0 ){ //0초
+            alert("TIME OVER")
+            clearInterval(cm); //숫자만들기종료
+            clearInterval(mm); // 이동종료
+            if(total>=50){
+                alert("you WIN!!"+"your score:"+total)
+            }
+            else if(total<50){
+                alert("YOU LOSE"+"your score:"+total)
+
+            }
+            alert("초기화면으로돌아갑니다")
+            location.reload();
+            return;
         }
         
     }

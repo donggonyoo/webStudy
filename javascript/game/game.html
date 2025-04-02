@@ -7,41 +7,50 @@
     <style>
         /*css아이콘사용 위함*/
          @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-        *{
-            margin: 0px;
-            padding: 0px;
+        *{ margin: 0px;padding: 0px;}
 
-        }
-        #sel{
+        #sel{ /*캐릭터선택창*/
             border: 5px solid black;
             width: 1500px;
             height: 1500px;
             background-image: url(../img/back.png);
         }
-        td>img{
+
+        td>img{ /*캐릭터선택창의 이미지*/
             height: 300px;
         }  
-        #main{
-            border: 1px solid red;
-            width: 1000px;
-            height: 800px;
-            background-color: black;
+        #main{/*캐릭터선택창을 위해 none처리*/
+            background-image: url(../img/back.png);
+            width: 1300px;
+            height: 880px;
             position: absolute;
-            overflow: auto;
             display: none;
         }
-        #func{
+
+        #startAndHuman{/*캐릭터선택창을 위해 none처리*/
             display: none;
         }
+
         #start{
-            top: 805px;
+            border: none;
+            cursor: pointer;
+            top: 870px;
             left: 400px;
             font-size: 40px;
             position: relative;
-            background-color: black;
+            background-color: red;
             color: white;
             border-radius: 20px;
         }
+        #human {
+        height: 60px;
+        width: 60px;
+        top: 815px; 
+        border: 1px solid green;
+        border-radius: 20px;
+         position: relative;
+        }
+
         i{/*https://fontawesome.com/icons*/
             font-size: 40px;
             background-color: black;
@@ -66,15 +75,7 @@
         i.fa-bomb{
             color: red;
         } /*각 아이콘마다 다른색깔*/
-        #human {
-        height: 40px;
-        width: 40px;
-        top: 750px; 
-        background-color: white;
-        border: 1px solid green;
-        border-radius: 20px;
-         position: relative;
-        }
+       
 
         #score{
             color: white;
@@ -93,6 +94,23 @@
         #ex{
             display: none;
             font-size: 30px;
+            width: 1000px;
+            height: 500px;
+        }
+        #goMain{
+            color: white;
+            text-shadow: 3px 5px 8px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 50px;
+            font-size: 50px;
+            cursor: pointer;
+        }
+        #goMain:hover{
+            font-size: 60px;
+        }
+        body{
+            background-color: grey;
         }
         
         
@@ -111,7 +129,11 @@
             <tr>
                 <td ><img src="../img/human3.png" onclick="character(this.src);"></td>
                 <td ><img src="../img/human4.png" onclick="character(this.src);"></td>
+                <td><img src="../img/gam.jpeg" onclick="character(this.src);"></td>
             </tr>
+            
+                
+            
         </table> 
         <table id="ex" border="1" style="background-color: white;">
             <caption> 룰 설명</caption>
@@ -128,10 +150,13 @@
                 <td>5점</td><td>3점</td><td>1점</td>
                 <td>-1점</td><td>-3점</td><td>-5점</td>
             </tr>
-            <tr><th colspan="6">제한시간 60초를 다 쓰거나
-                -10점 이상이되면 게임LOSE
+            <tr><th colspan="6">제한시간 내 50점을 넘기지못하거나나
+                -10점 이상이되면(강제종료) 게임LOSE
             </th></tr>
-            <tr><th colspan="6">게임시간이 끝난 기준 10점이 넘으면 게임WIN</th></tr>
+            <tr><th colspan="6">게임시간이 끝난 기준 50점이 넘으면 게임WIN</th></tr>
+            <tr>
+                <th colspan="6" rowspan="3"><button id="goMain">게임화면으로</button></th>
+            </tr>
             
             
         </table>
@@ -141,7 +166,7 @@
         <div id="score" >점수 : </div>
         <div id="gameTime"></div>
     </div>
-    <div id="func">
+    <div id="startAndHuman">
         <button id="start" onclick="start();" >Start</button>
         <img id="human">
     </div>
