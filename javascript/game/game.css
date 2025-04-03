@@ -9,8 +9,8 @@
      background-image: url(../img/back.png);
  }
  #level{
-    font-size: 60px;
-    width: 300px;
+    font-size: 40px;
+    width: 200px;
    cursor: pointer;
 
  }
@@ -32,11 +32,18 @@
 #ex{
     display: none;
     font-size: 30px;
-    width: 1000px;
-    height: 500px;
+    width: 1500px;
+    height: 800px;
+}
+#ex th, #ex i{
+    font-size: 40px;
+}
+#ex th, #ex td {
+    width: calc(1500px / 6); /* 6개의 열에 맞춰 너비 조절 */
+    height: 100px; /* 셀 높이 */
 }
 
- #start{
+#start{
      border: none;
      cursor: pointer;
      top: 840px;
@@ -83,7 +90,20 @@
      color: red;
  } /*각 아이콘마다 다른색깔*/
 
-
+ #gameResult { /*결과표시 (main창의 정가운데)*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); /* 반투명 배경 */
+    padding: 20px 50px;
+    border-radius: 20px;
+    display: none; /* 기본적으로 숨김 */
+}
  #score{
      color: white;
      text-align: center;

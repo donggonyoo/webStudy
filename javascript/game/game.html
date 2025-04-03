@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>장애물 피하기</title>
     <link rel="stylesheet" href="game.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -35,19 +35,19 @@
                 <th><i class="fa-solid fa-bomb"></i></th>
             </tr>
             <tr>
-                <td>5점</td><td>3점</td><td>1점</td>
-                <td>-1점</td><td>-3점</td><td>-5점</td>
+                <th>5점</th><th>3점</th><th>1점</th>
+                <th>-1점</th><th>-3점</th><th>-5점</th>
             </tr>
             <tr><th colspan="6">제한시간 내 30점을 넘기지못하거나나
                 -10점 이상이되면(강제종료) 게임LOSE
             </th></tr>
             <tr><th colspan="6">게임시간이 끝난 기준 30점이 넘으면 게임WIN</th></tr>
-            <tr><th>난이도설정1~4 </th><th colspan="4"><select  id="level">
+            <tr><th colspan="6">=====난이도설정1~4 <select  id="level">
                 <option value="one">1단계</option>
                 <option value="two">2단계</option>
                 <option value="three">3단계</option>
                 <option value="four">4단계</option>
-            </select></th></tr>
+            </select>=====</th></tr>
             <tr>
                 <th colspan="6" rowspan="3"><button id="goMain">게임화면으로</button></th>
             </tr> 
@@ -56,6 +56,7 @@
 
     
     <div id="main">
+        <div id="gameResult"></div>
         <div id="score" >점수 : </div>
         <div id="gameTime"></div>
     </div>

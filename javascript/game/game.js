@@ -33,9 +33,9 @@ function level(){
     let level = $("#level").val();
     switch(level){
         case "one" : {iconSpeed = 60; speed=12;}break;
-        case "two" : {iconSpeed = 50; speed=15;}break;
-        case "three" :{ iconSpeed = 40; speed=18;}break;
-        case "four" : { iconSpeed = 30; speed=30;}break;
+        case "two" : {iconSpeed = 45; speed=18;}break;
+        case "three" :{ iconSpeed = 35; speed=22;}break;
+        case "four" : { iconSpeed = 25; speed=30;}break;
     }
 }
 
@@ -53,12 +53,12 @@ function ready() { //HTML문서가 모두 불러와진 후
     const step = speed; // 한 번에 이동할 거리
     $(document).keydown(function(event) {
         if (event.key === "ArrowLeft") {
-            if (positionX > -100) { // 왼쪽 경계 체크
+            if (positionX > -170) { // 왼쪽 경계 체크
                 positionX -= step;
             }
         }
         if (event.key === "ArrowRight") {
-            if (positionX < mainWidth - humanWidth - 100) { // 오른쪽 경계 체크
+            if (positionX < mainWidth - humanWidth -190) { // 오른쪽 경계 체크
                 positionX += step;
             }
         }
@@ -159,7 +159,6 @@ function moveMode(){ //게임진행관련
 
                 case iconFind.classList.contains("fa-bomb") :{
                     humanState(false);total-=5;}break;
-
                 default : break;
             }
             //main에서 제거
@@ -174,31 +173,33 @@ function moveMode(){ //게임진행관련
            
         }
         if(total<= -10){
-            alert("점수미달로 인한 강제종료")
             clearInterval(cm); //숫자만들기종료
             clearInterval(mm); // 이동종료
-            alert("초기화면으로돌아갑니다")
-            location.reload();
-            return;
+            showGameResult("LOSEㅠㅠ"+total+"점(-10점이하 강제종료)","red");
         }
 
         if(gameTime==0 ){ //0초
-            alert("TIME OVER")
             clearInterval(cm); //숫자만들기종료
             clearInterval(mm); // 이동종료
             if(total>=30){
-                alert("you WIN!!"+"your score:"+total)
+               showGameResult("WIN ! !"+total+"점","green")
             }
             else if(total<30){
-                alert("YOU LOSE"+"your score:"+total)
-
+                showGameResult("LOSEㅠㅠ"+total+"점","red");
             }
-            alert("초기화면으로돌아갑니다")
-            location.reload();
-            return;
         }
         
     }
+}
+
+function showGameResult(message, color) { //게임종료 시 
+    $("#gameResult").html(message).css({
+        display: "block",
+        color: color // 승리: 초록, 패배: 빨강
+});
+    setTimeout(function () {
+        location.reload(); // 3초 후 게임 재시작
+    }, 3000);
 }
 
 function createMode(){
@@ -206,10 +207,10 @@ function createMode(){
 }
 
 function start(){
-    cm = setInterval(createMode,600); //0.8초마다 데이터추가
+    cm = setInterval(createMode,300); //0.8초마다 데이터추가
     mm = setInterval(moveMode,iconSpeed); //level에 따라 바뀌는 이동속도
     setInterval(function(){ //게임시간
-        $("#gameTime").html(gameTime--);  
+        $("#gameTime").html(`남은시간 : ${gameTime--}`);  
     },1000)
 
 };
