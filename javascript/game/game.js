@@ -32,10 +32,10 @@ function character(e){
 function level(){
     let level = $("#level").val();
     switch(level){
-        case "one" : {iconSpeed = 60; speed=12;}break;
+        case "one" : {iconSpeed = 55; speed=13;}break;
         case "two" : {iconSpeed = 45; speed=18;}break;
         case "three" :{ iconSpeed = 35; speed=22;}break;
-        case "four" : { iconSpeed = 25; speed=30;}break;
+        case "four" : { iconSpeed = 11; speed=60;}break;
     }
 }
 
